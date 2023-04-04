@@ -1,0 +1,183 @@
+/*===================*/
+/*=    CSS Reset    =*/
+/*===================*/
+
+html,
+body,
+div,
+span,
+main,
+header,
+footer,
+nav,
+img,
+table,
+tr,
+td,
+h1,
+h2,
+h3 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+}
+
+header li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #000000;
+    margin: .5em 0;
+    padding: 0;
+}
+
+
+h1,
+h2,
+h3 {
+    color: black;
+    font-weight: lighter;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+h1 {
+    margin-bottom: .5em
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+    font-family: Georgia, Garamond, Times, Times New Roman, serif;
+    font: 11pt;
+    font-weight: lighter;
+}
+
+h3 {
+    margin-top: 1.8em;
+    color: black;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+p {
+    color: black;
+    font-weight: lighter;
+    font-family: Garamond, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    /* Prevents horizontal scroll bar from appearing */
+}
+
+html {
+    min-height: 100%;
+    /* Causes the html element to fill the browser window if its contents don't */
+    /* overflow it, but expand vertically to match its contents if they do.     */
+
+    position: relative;
+    /* Lets us position the header and footer elements relative to the html element. */
+}
+
+.left {
+    position: fixed;
+    float: left;
+    margin-left: 5%;
+    top: 50%;
+    transform: translate(0%, -50%);
+    width: 35%;
+}
+
+.right {
+    position: fixed;
+    margin-left: 40%;
+    margin-right: 5%;
+    top: 50%;
+    transform: translate(0%, -50%);
+    width: 55%;
+}
+
+a:link,
+a:hover,
+a:visited,
+a:visited:hover {
+    color: #163313;
+    text-decoration: none;
+}
+
+/*  Gives links a gray background when they're hovered over.  */
+a:hover,
+a:visited:hover {
+    background-color: Gray;
+}
+
+.headlink:link,
+.headlink:visited,
+.headlink:visited:hover,
+.headlink.hover {
+    color: rgb(0, 0, 0);
+}
+
+/*  Provides a little extra spacing between the entries of a list.  */
+li {
+    margin-top: 8px;
+}
+
+body {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    min-width: 800px;
+    text-align: left;
+    font-family: Georgia, Garamond, Times, Times New Roman, serif;
+    font-size: 16pt;
+    font-weight: lighter;
+    color: black;
+    padding: 10px;
+}
+
+header a {
+    padding: 1px 4px;
+    /* Extends the gray box of a navigation link outwards slightly. */
+
+    border-radius: 8px;
+    /* Makes the gray box of a navigation link rounded.             */
+
+}
+
+
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: .5em;
+    width: 100%;
+    min-width: 800px;
+    font-family: Georgia, Garamond, Times, Times New Roman, serif;
+    font-size: 16pt;
+    font-weight: lighter;
+    color: black;
+}
+
+main {
+    display: block;
+    margin: 0 auto;
+    /* Centers the <main> element in the browser window. */
+    width: 100%;
+    margin: 0 50px;
+    /* Provides 50px of black space on the sides of the <main> element. */
+
+}

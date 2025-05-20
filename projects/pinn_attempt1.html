@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="../style/style_white.css">
+    <title>Fourier Analysis of "Gummo"</title>
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ER3625DPFD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ER3625DPFD');
+</script>
+
+<body>
+
+    <header>
+        <div>
+            <nav>
+                <li><a class="headlink" href="../index.html">Home</a></li>
+                <li><a class="headlink" href="../projects.html">Projects</a></li>
+                <li><a class="headlink" href="../about.html">About</a></li>
+                <li><a class="headlink" href="../contact.html">Contact</a></li>
+                <li><a class="headlink" href="../assets/VasudevMenon_Resume.pdf">Resume</a></li>
+            </nav>
+        </div>
+        <hr width=98%;>
+    </header>
+
+    <main>
+        <h1>Solving the 1D Heat Equation with PINNs</h1>
+        <p>
+            This project uses Physics-Informed Neural Networks (PINNs) to solve the 1D heat equation, a classic partial differential equation (PDE). 
+        </p>
+        <p>
+            The neural network learns to approximate the solution by minimizing the residual of the PDE and the initial condition loss simultaneously.
+        </p>
+        <ul>
+            <li><p>Defined the PDE and initial conditions: \( u_t = 9u_{xx}, \quad u(x, 0) = e^{-x^2} \)</p></li>
+            <li><p>Constructed a fully connected neural network with differentiable activation functions using PyTorch.</p></li>
+            <li><p>Used automatic differentiation to compute spatial and temporal derivatives.</p></li>
+            <li><p>Trained the model using the Adam optimizer to minimize combined PDE and initial condition loss functions.</p></li>
+            <li><p>Compared the PINN output with the exact solution and observed a close match at time \( t = 0.25 \).</p></li>
+        </ul>
+        <a href="../assets/PINN_Attempt1.pdf" target="_blank">Project Journal Entry</a>
+    </main>
+
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+
+
+    <footer>
+        <hr width=98%;>
+        &copy 2025 Vasudev Menon
+    </footer>
+
+</body>
+
+</html>

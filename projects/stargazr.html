@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stargazr</title>
+  <link rel="stylesheet" type="text/css" href="../style/style_white.css">
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ER3625DPFD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ER3625DPFD');
+</script>
+
+<body>
+  <header>
+    <div>
+      <nav>
+        <li><a class="headlink" href="../index.html">Home</a></li>
+        <li><a class="headlink" href="../projects.html">Projects</a></li>
+        <li><a class="headlink" href="../about.html">About</a></li>
+        <li><a class="headlink" href="../contact.html">Contact</a></li>
+        <li><a class="headlink" href="../assets/VasudevMenon_Resume.pdf">Resume</a></li>
+      </nav>
+    </div>
+    <hr width=98%;>
+  </header>
+
+  <main>
+    <h1>Stargazr</h1>
+
+    <section>
+      <h2>Overview</h2>
+      <p>Stargazr is a modern stargazing assistant that analyzes your location and provides personalized recommendations for the best nights to stargaze, factoring in astronomical, weather, and light pollution data.</p>
+      <p>Built with a FastAPI backend and deployed via Vercel, the project combines real-time weather APIs, astronomy calculations, and Bortle scale estimations for global usability.</p>
+    </section>
+
+    <section>
+      <h2>Key Features</h2>
+      <ul>
+        <li><strong>Astronomical Forecasting:</strong> Calculates moon phase, rise/set times, and visibility scores for the next 7–14 days.</li>
+        <li><strong>Weather Integration:</strong> Uses OpenWeatherMap and caching to deliver accurate, location-based forecast scoring.</li>
+        <li><strong>Dark Sky Zones:</strong> Recommends the best nearby dark sky zones using distance heuristics and a curated JSON database.</li>
+        <li><strong>Security & Rate Limiting:</strong> Enforced CORS, CSP headers, request validation, and per-IP limits using SlowAPI.</li>
+        <li><strong>Real-Time Light Pollution Estimation:</strong> Scrapes Bortle scale values via ClearOutside, with fallback geospatial estimates when unavailable.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Backend Architecture</h2>
+      <p>The FastAPI backend is secured via <strong>TrustedHostMiddleware</strong>, <strong>rate limiting</strong>, and <strong>security header enforcement</strong>. </p>
+      <p>API endpoints support location-based queries for recommendations, forecast retrieval, and dark sky exploration.</p>
+      <p>The backend pipeline includes weather caching, moonlight-aware visibility scoring, and client-side safety via request filtering and logging for suspicious behavior.</p>
+    </section>
+
+    <section>
+      <h2>Check out the Project here:  
+        <a href="https://stargazr.org">Website</a> | 
+        <a href="https://github.com/vmenon04/darksky">GitHub</a>
+      </h2>            
+    </section>
+  </main>
+
+  <footer>
+    <hr width=98%;>
+    &copy 2025 Vasudev Menon
+  </footer>
+</body>
+</html>

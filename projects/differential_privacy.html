@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Differential Privacy in Federated Learning</title>
+    <link rel="stylesheet" type="text/css" href="../style/style_white.css">
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ER3625DPFD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ER3625DPFD');
+</script>
+
+<body>
+    <header>
+        <div>
+            <nav>
+                <li><a class="headlink" href="../index.html">Home</a></li>
+                <li><a class="headlink" href="../projects.html">Projects</a></li>
+                <li><a class="headlink" href="../about.html">About</a></li>
+                <li><a class="headlink" href="../contact.html">Contact</a></li>
+                <li><a class="headlink" href="../assets/VasudevMenon_Resume.pdf">Resume</a></li>
+            </nav>
+        </div>
+        <hr width=98%;>
+    </header>
+
+    <main>
+        <h1>Differential Privacy in Federated Learning on MIMIC-IV</h1>
+        <section>
+            <h2>Overview</h2>
+            <p>This research project explored the integration of <strong>Differential Privacy (DP)</strong> into a <strong>Federated Learning (FL)</strong> framework, using the real-world MIMIC-IV intensive care dataset.</p>
+            <p>The goal was to enhance patient privacy while maintaining model performance across heterogeneous client data distributions.</p>
+            <p>We implemented the system in Python using <strong>PyTorch</strong> and <strong>Flower</strong>, focusing on privacy-preserving techniques like Gaussian noise injection and gradient clipping.</p>
+        </section>
+
+        <section>
+            <h2>Key Features</h2>
+            <ul>
+                <li><strong>Federated Training Setup:</strong> Simulated heterogeneous clients based on racial groupings to reflect real-world data skew.</li>
+                <li><strong>Differential Privacy Integration:</strong> Implemented <strong>Distributed Differential Privacy (DDP)</strong> with customizable epsilon budgets using Gaussian noise and clipping.</li>
+                <li><strong>Data Engineering:</strong> Managed over 100GB of patient records from MIMIC-IV using SQL and Power Query.</li>
+                <li><strong>Performance Evaluation:</strong> Analyzed trade-offs between model accuracy, convergence rate, and privacy loss.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Code & Methodology</h2>
+            <p>The system used <strong>Flower</strong> to coordinate federated training, and <strong>PyTorch</strong> for deep learning model definition and gradient tracking.</p>
+            <p>Differential privacy mechanisms were applied client-side before aggregation to simulate a realistic decentralized system.</p>
+            <p>All experiments were conducted with rigorous statistical analysis, and results were visualized across privacy parameters (ε) to assess utility degradation.</p>
+        </section>
+
+        <section>
+            <h2>Check out the Project here:  
+                <a href="https://drive.google.com/file/d/1n5wjrJFd_ZJSXruSCWzGFrdw0Hc6p6cd/view">Paper</a>
+            </h2>            
+        </section>
+    </main>
+
+    <footer>
+        <hr width=98%;>
+        &copy 2025 Vasudev Menon
+    </footer>
+
+</body>
+</html>

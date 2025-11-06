@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://vmenon04.github.io/sitemap.xml

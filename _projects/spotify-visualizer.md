@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Visualize your Spotify Taste
-date: 2024-01-01
+date: 2025-02-10
 excerpt: A web application that integrates with the Spotify API to analyze and visualize your music taste, featuring track analysis and abstract mosaic generation.
 links:
   website: https://spotify-visualizer-blond.vercel.app/

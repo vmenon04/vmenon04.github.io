@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Differential Privacy in Federated Learning
-date: 2024-05-01
+date: 2025-04-29
 excerpt: Integration of Differential Privacy into a Federated Learning framework using the MIMIC-IV dataset to enhance patient privacy while maintaining model performance.
 links:
   paper: https://drive.google.com/file/d/1n5wjrJFd_ZJSXruSCWzGFrdw0Hc6p6cd/view

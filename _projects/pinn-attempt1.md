@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Solving PDEs with Neural Networks
-date: 2023-10-01
+date: 2025-05-12
 excerpt: Physics-Informed Neural Networks approach to solving the 1D heat equation by minimizing PDE residuals and initial condition losses.
 math: true
 links:

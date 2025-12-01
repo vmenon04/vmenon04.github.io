@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Face Generator with GANs
-date: 2023-09-01
+date: 2025-05-09
 excerpt: Using Deep Convolutional GANs to generate realistic celebrity face images, trained on 200,000 samples with PyTorch.
 links:
   paper: /assets/docs/GAN_Attempt1.pdf

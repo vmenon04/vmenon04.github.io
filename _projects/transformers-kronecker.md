@@ -1,7 +1,7 @@
 ---
 layout: page
 title: A Mathematical Description of Transformers via Kronecker Products
-date: 2024-04-01
+date: 2025-12-01
 excerpt: A mathematical reformulation of the Transformer architecture using Kronecker products, revealing attention as a separable linear operator across sequence and feature dimensions.
 math: true
 links:

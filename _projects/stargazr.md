@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Stargazr
-date: 2024-06-01
+date: 2025-06-13
 excerpt: A modern stargazing assistant that provides personalized recommendations for the best nights to stargaze, combining astronomy, weather, and light pollution data.
 links:
   website: https://stargazr.org

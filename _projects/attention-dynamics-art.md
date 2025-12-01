@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Attention Dynamics Art
-date: 2024-03-01
+date: 2025-11-04
 excerpt: Generative art created from a minimal dynamical system inspired by self-attention mechanisms, producing intricate fractal patterns from algebraic interactions.
 math: true
 links:

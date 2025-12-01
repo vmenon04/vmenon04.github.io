@@ -46,3 +46,5 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+
+google_analytics: G-ER3625DPFD

@@ -1,0 +1,48 @@
+# Site settings
+title: Vasudev Menon
+author: Vasudev Menon
+email: vmenon2@ncsu.edu
+description: >-
+  Personal website showcasing my projects, research, and experience.
+baseurl: ""
+url: "https://vmenon04.github.io"
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - README.md
+  - LICENSE
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"

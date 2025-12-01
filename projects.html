@@ -1,61 +1,60 @@
-<!doctype html>
-<html>
+---
+layout: page
+title: Projects
+---
 
-<head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="style/style_white.css">
-    <title>Projects | Vasudev Menon</title>
-</head>
+<div class="projects-list">
+    <p style="color: gray; font-size: 0.9em; margin-bottom: 2.5em;">
+        Note: Most of these are made for fun.
+    </p>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ER3625DPFD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    {% assign sorted_projects = site.projects | sort: 'date' | reverse %}
+    
+    {% for project in sorted_projects %}
+    <div class="project-item">
+        <h2><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h2>
+        
+        {% if project.excerpt %}
+        <p class="project-excerpt">{{ project.excerpt }}</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
 
-  gtag('config', 'G-ER3625DPFD');
-</script>
+<style>
+.projects-list {
+    max-width: 800px;
+}
 
-<body>
+.project-item {
+    margin-bottom: 2.5em;
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid #e0e0e0;
+}
 
-    <header>
-        <div>
-            <nav>
-                <li><a class="headlink" href="index.html">Home</a></li>
-                <li><a class="headlink" href="projects.html">Projects</a></li>
-                <li><a class="headlink" href="about.html">About</a></li>
-                <li><a class="headlink" href="contact.html">Contact</a></li>
-                <li><a class="headlink" href="assets/VasudevMenon_Resume.pdf">Resume</a></li>
-            </nav>
-        </div>
-        <hr width=98%;>
-    </header>
+.project-item:last-child {
+    border-bottom: none;
+}
 
-    <main>
-        <h1>Projects</h1>
-        <p>Click on a project to learn more:</p>
+.project-item h2 {
+    margin-bottom: 0.6em;
+    font-size: 1.4em;
+}
 
-        <p style="color: gray; font-size: 0.9em;">
-            Note: Most of these are made for fun.
-        </p>
+.project-item h2 a {
+    color: #163313;
+    text-decoration: none;
+    transition: color 0.2s;
+}
 
-        <ul>
-            <li><a href="projects/spotify_visualizer.html">Visualize your Spotify Taste</a></li>
-            <li><a href="projects/gan_attempt1.html">Face Generator with GANs</a></li>
-            <li><a href="projects/pinn_attempt1.html">Solving PDEs with Neural Networks</a></li>
-            <li><a href="projects/differential_privacy.html">Differential Privacy in Federated Learning</a></li>
-            <li><a href="projects/stargazr.html">Stargazr</a></li>
-            <li><a href="projects/attention_dynamics_art.html">Attention Dynamics Art</a></li>
-            <li><a href="projects/transformers_kronecker.html">A Mathematical Description of Transformers via Kronecker Products</a></li>
-        </ul>
-    </main>
+.project-item h2 a:hover {
+    background-color: transparent;
+    color: #2d5a25;
+}
 
-    <footer>
-        <hr width=98%;>
-        &copy 2025 Vasudev Menon
-    </footer>
-
-</body>
-
-</html>
+.project-excerpt {
+    margin: 0;
+    line-height: 1.7;
+    color: #444;
+}
+</style>

@@ -3,15 +3,24 @@ title: Vasudev Menon
 author: Vasudev Menon
 email: vmenon2@ncsu.edu
 description: >-
-  Personal website showcasing my projects, research, and experience.
+  Vasudev Menon - Undergraduate student at NC State University studying Computer Science and Mathematics. 
+  Portfolio featuring projects in deep learning, mathematical formulations, and software development.
 baseurl: ""
 url: "https://vmenon04.github.io"
+
+# SEO
+social:
+  name: Vasudev Menon
+  links:
+    - https://www.linkedin.com/in/vmenon04/
+    - https://github.com/vmenon04
 
 # Build settings
 markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 # Exclude from processing
 exclude:

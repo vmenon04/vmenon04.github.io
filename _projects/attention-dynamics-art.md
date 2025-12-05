@@ -71,8 +71,6 @@ The $(a,b)$ parameter space is discretized uniformly over $[-8, 8]^2$ with $1500
 
 Gallery of convergence landscapes. Top left is generated with seed 1 and $W_K = W_Q = I$. The rest are generated with random seeds (left to right, top to bottom): 1679700, 5227590, 6306593, 6549664, 8012376. 
 
-## Gallery
-
 <div class="art-gallery">
   <img src="/assets/images/art1_Large.png" alt="Attention Dynamics Art 1" onclick="openLightbox(this.src)">
   <img src="/assets/images/art1679700_Large.png" alt="Attention Dynamics Art 2" onclick="openLightbox(this.src)">

@@ -420,6 +420,121 @@ img {
     background-color: #2d5a25;
 }
 
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2em 0;
+    font-size: 0.95em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+table thead tr {
+    background-color: #163313;
+    color: #ffffff;
+    text-align: left;
+    font-weight: 500;
+}
+
+table th,
+table td {
+    padding: 16px 20px;
+    border: 1px solid #e0e0e0;
+}
+
+table th {
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: 0.3px;
+}
+
+table tbody tr {
+    background-color: #ffffff;
+    transition: background-color 0.2s ease;
+}
+
+table tbody tr:nth-of-type(even) {
+    background-color: #f8f8f8;
+}
+
+table tbody tr:hover {
+    background-color: #f0f5ef;
+}
+
+table tbody tr:last-of-type {
+    border-bottom: 2px solid #163313;
+}
+
+/* Center-aligned table columns */
+table th:not(:first-child),
+table td:not(:first-child) {
+    text-align: center;
+}
+
+/* Code Styling */
+code {
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+    font-size: 0.88em;
+    background-color: #f5f5f5;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    color: #c7254e;
+    border: 1px solid #e8e8e8;
+    margin: 0 0.1em;
+}
+
+pre {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 1.2em;
+    overflow-x: auto;
+    margin: 1.5em 0;
+    line-height: 1.5;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    color: #333;
+    font-size: 0.9em;
+    margin: 0;
+}
+
+/* Bibliography */
+.bibliography {
+    list-style: none;
+    padding: 0;
+    margin: 2em 0;
+}
+
+.bibliography li {
+    margin-bottom: 1.5em;
+    padding-left: 2em;
+    position: relative;
+    line-height: 1.7;
+}
+
+.bibliography li::before {
+    content: "[" counter(list-item) "]";
+    position: absolute;
+    left: 0;
+    font-weight: 600;
+    color: #163313;
+}
+
+.bibliography-item {
+    display: block;
+}
+
+.bibliography-item a {
+    color: #163313;
+    font-weight: 500;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     body {
@@ -492,5 +607,15 @@ img {
     .page-link-button {
         width: 100%;
         text-align: center;
+    }
+    
+    /* Responsive tables */
+    table {
+        font-size: 0.85em;
+    }
+    
+    table th,
+    table td {
+        padding: 12px 10px;
     }
 }

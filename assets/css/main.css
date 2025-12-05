@@ -207,12 +207,47 @@ main {
 }
 
 .contact p {
-    margin-bottom: 0.8em;
+    margin-bottom: 1.5em;
 }
 
 .contact a {
     color: #163313;
     font-weight: 500;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+    margin-top: 2em;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+}
+
+.contact-label {
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #666;
+    font-weight: 600;
+}
+
+.contact-item a {
+    font-size: 1.05em;
+    text-decoration: none;
+    color: #163313;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.contact-item a:hover {
+    color: #2d5a25;
+    transform: translateX(4px);
 }
 
 .home img,

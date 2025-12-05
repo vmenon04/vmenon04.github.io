@@ -8,15 +8,9 @@ links:
   github: https://github.com/vmenon04/darksky
 ---
 
-## Overview
-Stargazr is a modern stargazing assistant that analyzes your location and provides personalized recommendations for the best nights to stargaze, factoring in astronomical, weather, and light pollution data. Built with a FastAPI backend and deployed via Vercel, the project combines real-time weather APIs, astronomy calculations, and Bortle scale estimations for global usability.
+I built this simple web-app to assist people in finding the right time and place to go stargazing. Users can view conditions for their current location or explore nearby designated dark sky zones, with each recommendation scored based on factors like cloud cover, moon brightness, humidity, and visibility to help identify the best nights for observing the stars.
 
-## Key Features
-- **Astronomical Forecasting:** Calculates moon phase, rise/set times, and visibility scores for the next 7–14 days.
-- **Weather Integration:** Uses OpenWeatherMap and caching to deliver accurate, location-based forecast scoring.
-- **Dark Sky Zones:** Recommends the best nearby dark sky zones using distance heuristics and a curated JSON database.
-- **Security & Rate Limiting:** Enforced CORS, CSP headers, request validation, and per-IP limits using SlowAPI.
-- **Real-Time Light Pollution Estimation:** Scrapes Bortle scale values via ClearOutside, with fallback geospatial estimates when unavailable.
+Data for dark sky places was scraped from the [International Dark Sky Places](https://darksky.org/what-we-do/international-dark-sky-places/) (IDSP) program website, and weather data is taken from the [OpenWeatherMap API](https://openweathermap.org/api). The application calculates astronomical conditions including moon phases and illumination using PyEphem, fetches real-time Bortle scale measurements from [Clear Outside](https://clearoutside.com/) to determine light pollution levels, which is combined with the weather forecast data to provide stargazing recommendations. Most of the data is cached to prevent excessive API calls and reduce loading times. 
+ 
 
-## Backend Architecture
-The FastAPI backend is secured via **TrustedHostMiddleware**, **rate limiting**, and **security header enforcement**. API endpoints support location-based queries for recommendations, forecast retrieval, and dark sky exploration. The backend pipeline includes weather caching, moonlight-aware visibility scoring, and client-side safety via request filtering and logging for suspicious behavior.
+It was also featured on the [Light Pollution News Podcast](https://lightpollutionnews.com/podcast/why-its-so-bright-at-night-vasudev-menon/)!

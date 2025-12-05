@@ -75,19 +75,21 @@ I used the Adam optimizer for both the generator and the discriminator, with lea
 
 I ended up training the models with a batch size of 128 across 20 epochs. It took quite a while, but after 15 epochs, here are the results:
 
-<figure>
-  <img src="/assets/images/epoch_015.png" alt="Generator outputs using 16 different noisy inputs after 15 epochs">
-  <figcaption>Generator outputs using 16 different noisy inputs after 15 epochs. The generated faces are starting to form, with the model learning features like eyes, hair, facial structure, and jaw. Discriminator loss: 0.3211, Generator loss: 3.1851.</figcaption>
-</figure>
+{% include figure.html 
+   src="/assets/images/epoch_015.png" 
+   alt="Generator outputs using 16 different noisy inputs after 15 epochs"
+   caption="Generator outputs using 16 different noisy inputs after 15 epochs. The generated faces are starting to form, with the model learning features like eyes, hair, facial structure, and jaw. Discriminator loss: 0.3211, Generator loss: 3.1851." 
+%}
 
 The generated faces are starting to form. The model is slowly learning how to create features like eyes, hair, facial structure, jaw, etc. I think at this point, I had a Discriminator loss of `0.3211` and a Generator loss of `3.1851`, which is pretty standard. Ideally, these losses should keep fluctuating. One model cannot win (because that spoils the adversarial part of the training).
 
 Interestingly, however, after the full 20 epochs, we get the following:
 
-<figure>
-  <img src="/assets/images/epoch_020.png" alt="Generator outputs using 16 different noisy inputs after 20 epochs">
-  <figcaption>Generator outputs after 20 epochs showing mode collapse. The Generator produces the same output repeatedly, and the Discriminator is no longer fooled. Discriminator loss: 0.000, Generator loss: 64.0911.</figcaption>
-</figure>
+{% include figure.html 
+   src="/assets/images/epoch_020.png" 
+   alt="Generator outputs using 16 different noisy inputs after 20 epochs"
+   caption="Generator outputs after 20 epochs showing mode collapse. The Generator produces the same output repeatedly, and the Discriminator is no longer fooled. Discriminator loss: 0.000, Generator loss: 64.0911." 
+%}
 
 Upon inspecting the losses, we have a Discriminator loss of `0.000` and a Generator loss of `64.0911`. It seems like the Generator decided to output this one weird image all the time, and the Discriminator was not fooled. This is known as *mode collapse*. This happens when the Generator finds one output that consistently fools the Discriminator (until it doesn't anymore) {% cite salimans2016improvedtechniquestraininggans %}. I will try to figure out how to fix this later.
 

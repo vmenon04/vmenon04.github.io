@@ -53,9 +53,10 @@ where each $z^{(l)} \in \mathbb{R}^{64}$ and $\tanh$ is applied element-wise.
 
 The network parameters are optimized by minimizing the loss function above using the Adam optimizer. I also used PyTorch's `autograd.grad()` feature to compute the derivatives. Here are my results (at $t=0.25$), it's crazy how this literally works:
 
-![Comparison between the predicted solution and exact solution at t=0.25](pinn_heateqn_sol.png)
-
-The figure compares the predicted solution $\hat{u}(x, t)$ obtained from the PINN and the exact solution of the 1D heat equation on the infinite domain at time $t = 0.25$. The initial condition is $u(x, 0) = e^{-x^2}$ and the exact solution is $u(x, t) = \frac{1}{\sqrt{1 + 36t}} \exp\left( -\frac{x^2}{1 + 36t} \right)$.
+<figure>
+  <img src="/assets/images/pinn_heateqn_sol.png" alt="Comparison between the predicted solution and exact solution at t=0.25">
+  <figcaption>Comparison of the predicted solution $\hat{u}(x, t)$ from the PINN and the exact solution of the 1D heat equation at $t = 0.25$. The initial condition is $u(x, 0) = e^{-x^2}$ and the exact solution is $u(x, t) = \frac{1}{\sqrt{1 + 36t}} \exp\left( -\frac{x^2}{1 + 36t} \right)$.</figcaption>
+</figure>
 
 ---
 

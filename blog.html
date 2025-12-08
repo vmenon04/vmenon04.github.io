@@ -1,0 +1,27 @@
+---
+layout: page
+title: Blog
+---
+
+<div class="blog-list">
+    <p style="color: gray; font-size: 0.9em; margin-bottom: 2.5em;">
+        Some of my thoughts.
+    </p>
+
+    {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
+    
+    {% if sorted_posts.size > 0 %}
+        {% for post in sorted_posts %}
+        <div class="blog-item">
+            <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+            <p class="post-date">{{ post.date | date: "%B %-d, %Y" }}</p>
+            
+            {% if post.excerpt %}
+            <p class="post-excerpt">{{ post.excerpt }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No blog posts yet. Check back soon!</p>
+    {% endif %}
+</div>

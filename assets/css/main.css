@@ -607,6 +607,48 @@ figcaption {
     font-weight: 500;
 }
 
+/* Blog Styles */
+.blog-list {
+    max-width: 800px;
+}
+
+.blog-item {
+    margin-bottom: 2.5em;
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.blog-item:last-child {
+    border-bottom: none;
+}
+
+.blog-item h2 {
+    margin-bottom: 0.3em;
+    font-size: 1.4em;
+}
+
+.blog-item h2 a {
+    color: #163313;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.blog-item h2 a:hover {
+    color: #2a5a25;
+    text-decoration: underline;
+}
+
+.post-date {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 0.8em;
+}
+
+.post-excerpt {
+    color: #333;
+    line-height: 1.6;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     body {

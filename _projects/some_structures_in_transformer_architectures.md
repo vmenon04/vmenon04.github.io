@@ -8,10 +8,10 @@ links:
   paper: /assets/docs/some_structures_in_transformer_architectures.pdf
 ---
 
+*This project was completed as part of the Budapest Semesters in Mathematics Advanced Directed Reading Program (Autumn 2025), supervised by Attila Jung at Eötvös Loránd University (ELTE).*
+
 ## Abstract
 Transformer models have become the backbone of modern large language models due to their unprecedented success and state-of-the-art performance across a wide range of tasks. However, their inner workings have remained difficult to interpret. In this project, we present a more interpretable construction of the decoder-only transformer model, focusing on a simplified, attention-only architecture. We show that the self-attention mechanism of a single attention head can be compactly written as a Kronecker product acting on the input embeddings, which highlights the separable nature of attention and provides a framework for interpreting information flow through zero- and one-layer transformers. Finally, we provide a brief introduction to the phenomenon of superposition in high-dimensional vector spaces, highlighting the increasing complexities as these models scale.
-
-*This project was completed as part of the Budapest Semesters in Mathematics Advanced Directed Reading Program (Autumn 2025), supervised by Attila Jung at ELTE.*
 
 ## Introduction
 

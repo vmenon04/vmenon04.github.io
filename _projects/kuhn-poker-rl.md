@@ -10,7 +10,7 @@ math: true
 
 ## Introduction
 
-Kuhn Poker is a simplified version of poker designed by Harold W. Kuhn as a "fascinating problem for the game theoretician." It is a form of poker played between two players, with three possible hands and only a single round of betting. In fact, Kuhn showed that the game has a mixed-strategy Nash equilibrium, where both players can play equilibrium strategies.
+Kuhn Poker is a simplified version of poker designed by Harold W. Kuhn as a "fascinating problem for the game theoretician" {% cite kuhn1950simplified %}. It is a form of poker played between two players, with three possible hands and only a single round of betting. In fact, Kuhn showed that the game has a mixed-strategy Nash equilibrium, where both players can play equilibrium strategies.
 
 The game proceeds as follows: a single card is dealt face-down to each of the two players from a three-card deck $\{J, Q, K\}$, leaving one card undistributed and unknown to both players.
 
@@ -159,3 +159,9 @@ In contrast, the heatmaps for Player 2 show that the model learns several core a
    alt="Experiment 2 Player 2 Heatmap"
    caption="Player 2's heatmap in Experiment 2." 
 %}
+
+---
+
+## References
+
+{% bibliography --cited %}

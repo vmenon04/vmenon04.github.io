@@ -6,6 +6,8 @@ excerpt: Training RL agents to learn a simplified version of poker called Kuhn P
 math: true
 ---
 
+*This project was completed as part of the Budapest Semesters in Mathematics Deep Learning Class (Autumn 2025), supervised by Pál Zsámboki at The Alfréd Rényi Institute of Mathematics.*
+
 ## Introduction
 
 Kuhn Poker is a simplified version of poker designed by Harold W. Kuhn as a "fascinating problem for the game theoretician." It is a form of poker played between two players, with three possible hands and only a single round of betting. In fact, Kuhn showed that the game has a mixed-strategy Nash equilibrium, where both players can play equilibrium strategies.

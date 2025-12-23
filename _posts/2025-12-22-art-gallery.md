@@ -2,6 +2,8 @@
 layout: post
 title: "Art Gallery"
 date: 2025-12-22
+math: false
+excerpt: A curated collection of artworks I saw in the Kunsthistorisches Museum in Vienna that have caught my attention and inspired me.
 ---
 
 A curated collection of artworks I saw in the Kunsthistorisches Museum in Vienna that have caught my attention and inspired me.

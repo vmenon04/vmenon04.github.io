@@ -638,7 +638,7 @@ $$
 (1-\varepsilon)\|x - y\|_2^2 \le \|f(x) - f(y)\|_2^2 \le (1+\varepsilon)\|x - y\|_2^2.
 $$
 
-*Proof.* Let $Z=\{z^1,\dots,z^N\}\subset\mathbb{R}^n$ be the given set of points. Fix $0<\varepsilon<1$. Choose independent random vectors $x^1,\dots,x^m\in\mathbb{R}^n$ by letting each coordinate
+*Proof.* Let $Z=\\{z^1,\dots,z^N\\}\subset\mathbb{R}^n$ be the given set of points. Fix $0<\varepsilon<1$. Choose independent random vectors $x^1,\dots,x^m\in\mathbb{R}^n$ by letting each coordinate
 
 $$
 x^k_\ell \in \left\{\sqrt{\frac{1+\varepsilon}{m}},\ -\sqrt{\frac{1+\varepsilon}{m}}\right\}

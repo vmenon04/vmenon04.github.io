@@ -12,7 +12,7 @@ math: true
 
 Kuhn Poker is a simplified version of poker designed by Harold W. Kuhn as a "fascinating problem for the game theoretician" {% cite kuhn1950simplified %}. It is a form of poker played between two players, with three possible hands and only a single round of betting. In fact, Kuhn showed that the game has a mixed-strategy Nash equilibrium, where both players can play equilibrium strategies.
 
-The game proceeds as follows: a single card is dealt face-down to each of the two players from a three-card deck $\{J, Q, K\}$, leaving one card undistributed and unknown to both players.
+The game proceeds as follows: a single card is dealt face-down to each of the two players from a three-card deck $\\{J, Q, K\\}$, leaving one card undistributed and unknown to both players.
 
 Player 1 acts first and may either check or bet; subsequently, Player 2 may respond by checking, calling, or folding depending on the preceding action. There are only two rounds of betting for the first player and one for the second, and no further cards are dealt or public information revealed during play.
 
@@ -67,7 +67,7 @@ Explicitly, our model is as follows:
 
 $$y(x) = \sigma(w^\top s)$$
 
-where $\sigma(x)=\frac{1}{1+e^{-x}}$ is the sigmoid activation function, $w \in \mathbb{R}^{12}$, and $s\in\{0,1\}^{12}$ is the one-hot encoded state vector.
+where $\sigma(x)=\frac{1}{1+e^{-x}}$ is the sigmoid activation function, $w \in \mathbb{R}^{12}$, and $s\in\\{0,1\\}^{12}$ is the one-hot encoded state vector.
 
 ## Experiment 1: Fixed Optimal Opponent
 
@@ -75,7 +75,7 @@ In the first experiment, we aim to encode the optimal strategy for Player 2 dire
 
 ### Coding Optimal Player 2
 
-As discussed in the Setup, there is a one-to-one correspondence between game states and model weights. We manually set the model's weights so that, for each state, the output probability matches the optimal betting or calling behavior.Let $i = \arg\max_j s_j$ denote the active state index. Player 2 makes decisions only in states that follow either a check or a bet by Player 1.After Player 1 checks ($i \in \{3,4,5\}$):Player 2 chooses whether to bet. Writing $c = i - 3 \in \{J,Q,K\}$ for the card held by Player 2, the equilibrium betting probabilities are:
+As discussed in the Setup, there is a one-to-one correspondence between game states and model weights. We manually set the model's weights so that, for each state, the output probability matches the optimal betting or calling behavior.Let $i = \arg\max_j s_j$ denote the active state index. Player 2 makes decisions only in states that follow either a check or a bet by Player 1.After Player 1 checks ($i \in \\{3,4,5\\}$):Player 2 chooses whether to bet. Writing $c = i - 3 \in \\{J,Q,K\\}$ for the card held by Player 2, the equilibrium betting probabilities are:
 
 $$\pi_2^{\text{bet}}(c) =
 \begin{cases}
@@ -84,7 +84,7 @@ $$\pi_2^{\text{bet}}(c) =
     1,            & c = K.
 \end{cases}$$
 
-After Player 1 bets ($i \in \{9,10,11\}$):Player 2 chooses whether to call or fold. With $c = i - 9 \in \{J,Q,K\}$, the equilibrium calling probabilities are:
+After Player 1 bets ($i \in \\{9,10,11\\}$):Player 2 chooses whether to call or fold. With $c = i - 9 \in \\{J,Q,K\\}$, the equilibrium calling probabilities are:
 
 $$\pi_2^{\text{call}}(c) =
 \begin{cases}
@@ -124,7 +124,7 @@ It is valuable to discuss that this experiment has several limitations. First, n
 
 ## Experiment 2: Self-Play
 
-We use the same environment described in the previous section. In this experiment, we initialize 100 identical models and train them via self-play, with each model alternating between the roles of Player 1 and Player 2. When a model acts as Player $i \in \{1,2\}$, we define its policy-gradient loss as:
+We use the same environment described in the previous section. In this experiment, we initialize 100 identical models and train them via self-play, with each model alternating between the roles of Player 1 and Player 2. When a model acts as Player $i \in \\{1,2\\}$, we define its policy-gradient loss as:
 
 $$\ell_i = - \log(p)\,(r - r_{\mathrm{ema}})$$
 

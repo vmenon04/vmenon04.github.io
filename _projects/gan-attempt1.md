@@ -69,7 +69,7 @@ $$
 \mathcal{L}_{\text{BCE}}(p, y) = - \left[ y \log(p) + (1 - y) \log(1 - p) \right]
 $$
 
-where $p \in [0, 1]$ is the predicted probability and $y \in \{0, 1\}$ is the ground truth label.
+where $p \in [0, 1]$ is the predicted probability and $y \in \\{0, 1\\}$ is the ground truth label.
 
 I used the Adam optimizer for both the generator and the discriminator, with learning rate $\alpha = 0.0002$ and momentum parameters $\beta_1 = 0.5$, $\beta_2 = 0.999$. These are commonly used hyperparameters in GAN training.
 

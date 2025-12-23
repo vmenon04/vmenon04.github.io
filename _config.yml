@@ -9,6 +9,9 @@ baseurl: ""
 url: "https://vmenon04.github.io"
 
 # SEO
+logo: /assets/images/logo.png
+image: /assets/images/og-image.png
+
 social:
   name: Vasudev Menon
   links:

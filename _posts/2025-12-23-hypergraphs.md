@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Hypergraph Theory"
-date: 2025-12-21
+date: 2025-12-23
 math: true
 excerpt: An introduction to hypergraph theory and the Erdős–Ko–Rado Theorem.
 ---

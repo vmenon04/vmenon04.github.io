@@ -450,17 +450,18 @@ img {
 .page-link-button {
     display: inline-block;
     padding: 0.7em 1.5em;
-    background-color: #163313;
-    color: #fff !important;
+    background-color: transparent;
+    color: #163313;
     text-decoration: none;
+    border: 2px solid #163313;
     border-radius: 4px;
     font-weight: 500;
-    transition: background-color 0.2s;
-    border: none;
+    transition: all 0.2s;
 }
 
 .page-link-button:hover {
-    background-color: #2d5a25;
+    background-color: #163313;
+    color: #fff !important;
 }
 
 /* Tables */

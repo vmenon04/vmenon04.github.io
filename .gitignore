@@ -18,3 +18,9 @@ vendor/
 *.swp
 *.swo
 *~
+
+# Personal notes
+*.log
+
+# Hidden files
+*.hid

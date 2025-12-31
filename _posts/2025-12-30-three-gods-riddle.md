@@ -6,7 +6,7 @@ math: true
 excerpt: Explaining the solution to the Three Gods Riddle.
 ---
 
-I will aim to explain the solution to the Three Gods Riddle.
+I will aim to explain the solution to the [Three Gods Riddle](https://en.wikipedia.org/wiki/The_Hardest_Logic_Puzzle_Ever).
 
 We have 3 Gods: T, F, and R.  
 T always tells the truth. F always lies. R provides a random answer each time.  

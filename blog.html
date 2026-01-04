@@ -26,3 +26,13 @@ math: true
         <p>No blog posts yet. Check back soon!</p>
     {% endif %}
 </div>
+
+<script>
+// Stagger the fade-in animations for blog items
+document.addEventListener('DOMContentLoaded', function() {
+    const blogItems = document.querySelectorAll('.blog-item');
+    blogItems.forEach((item, index) => {
+        item.style.animationDelay = `${index * 0.15}s`;
+    });
+});
+</script>

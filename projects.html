@@ -26,28 +26,28 @@ title: Projects
     max-width: 800px;
 }
 
-.project-item {
+.projects-list .project-item {
     margin-bottom: 2.5em;
     padding-bottom: 1.5em;
     border-bottom: 1px solid #e0e0e0;
 }
 
-.project-item:last-child {
+.projects-list .project-item:last-child {
     border-bottom: none;
 }
 
-.project-item h2 {
+.projects-list .project-item h2 {
     margin-bottom: 0.6em;
     font-size: 1.4em;
 }
 
-.project-item h2 a {
+.projects-list .project-item h2 a {
     color: #163313;
     text-decoration: none;
     transition: color 0.2s;
 }
 
-.project-item h2 a:hover {
+.projects-list .project-item h2 a:hover {
     background-color: transparent;
     color: #2d5a25;
 }
@@ -58,3 +58,13 @@ title: Projects
     color: #444;
 }
 </style>
+
+<script>
+// Stagger the fade-in animations for project items
+document.addEventListener('DOMContentLoaded', function() {
+    const projectItems = document.querySelectorAll('.project-item');
+    projectItems.forEach((item, index) => {
+        item.style.animationDelay = `${index * 0.15}s`;
+    });
+});
+</script>

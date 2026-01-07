@@ -24,14 +24,19 @@ main {
     display: none !important;
 }
 
-/* Hide all reactions including upvotes */
+/* Hide all reactions including upvotes and collapse their containers */
 .gsc-reactions,
 .gsc-reactions-count,
 .gsc-direct-reaction-buttons,
 .gsc-reactions-button,
 .gsc-social-reaction-summary,
-.gsc-upvote-button {
+.gsc-upvote-button,
+.gsc-comment-reactions,
+.gsc-comment-footer {
     display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 /* Remove ALL borders */

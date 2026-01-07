@@ -84,6 +84,12 @@ main .gsc-comments .gsc-header {
     padding: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.gsc-comment-box > * {
+    width: 100% !important;
+    max-width: 100% !important;
 }
 
 .gsc-comment-box-tabs {
@@ -101,10 +107,15 @@ main .gsc-comments .gsc-header {
     padding: 1em !important;
     outline: none !important;
     box-shadow: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
 }
 
 .gsc-comment-box-textarea:focus {
     border-color: #163313 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 1px #163313 !important;
 }
 
 /* All text elements use site fonts */
@@ -158,6 +169,13 @@ button {
 button:hover {
     background: #163313 !important;
     color: #fff !important;
+    outline: none !important;
+}
+
+button:focus,
+button:active {
+    outline: none !important;
+    box-shadow: 0 0 0 1px #163313 !important;
 }
 
 /* Timeline - minimal spacing */

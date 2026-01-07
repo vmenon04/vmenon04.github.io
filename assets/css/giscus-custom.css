@@ -165,16 +165,29 @@ img[src*="avatars"] {
     margin-left: 0 !important;
 }
 
-/* Main/top-level comments - add padding */
-.gsc-timeline > .gsc-timeline-item > .gsc-comment .gsc-comment-header,
-.gsc-timeline > .gsc-timeline-item > .gsc-comment .gsc-comment-content {
-    padding-left: 1.5em !important;
+/* Main/top-level comments - add padding via parent container */
+.gsc-main {
+    padding-left: 0 !important;
 }
 
-/* Replies - no padding */
-.gsc-reply,
-.gsc-reply .gsc-comment-header,
-.gsc-reply .gsc-comment-content {
+.gsc-comments {
+    padding-left: 0 !important;
+}
+
+/* All comments get consistent left padding */
+.gsc-comment-box-main,
+.gsc-comment-author,
+.gsc-comment-content {
+    margin-left: 0 !important;
+}
+
+/* Replies - indent them slightly */
+.gsc-replies {
+    padding-left: 2em !important;
+    margin-left: 0 !important;
+}
+
+.gsc-reply {
     padding-left: 0 !important;
     margin-left: 0 !important;
 }

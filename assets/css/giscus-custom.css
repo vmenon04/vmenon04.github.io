@@ -48,11 +48,18 @@ main {
     display: none !important;
 }
 
-/* Hide the "0 comments" header text */
+/* Hide the Giscus header and comment count completely */
 .gsc-header,
 .gsc-comments > .gsc-header,
-.gsc-comment-count {
+.gsc-comment-count,
+.gsc-left-header,
+.gsc-right-header h4,
+main .gsc-comments .gsc-header {
     display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 /* Comment styling - minimal borders */

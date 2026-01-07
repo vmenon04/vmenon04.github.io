@@ -136,7 +136,12 @@ img.avatar,
 .gsc-reply-avatar,
 .gsc-timeline-item .avatar,
 .gsc-comment .avatar-user,
-.gsc-tl-line {
+.gsc-tl-line,
+.TimelineItem-avatar,
+a.author img,
+.avatar,
+img[alt*="avatar"],
+img[src*="avatars"] {
     display: none !important;
     visibility: hidden !important;
     width: 0 !important;

@@ -157,7 +157,6 @@ img[src*="avatars"] {
 .gsc-comment-header {
     margin-bottom: 0.5em !important;
     padding: 0 !important;
-    padding-left: 1em !important;
     margin-left: 0 !important;
 }
 
@@ -166,21 +165,18 @@ img[src*="avatars"] {
     margin-left: 0 !important;
 }
 
-.gsc-comment-content {
-    padding-left: 1em !important;
+/* Main/top-level comments - add padding */
+.gsc-timeline > .gsc-timeline-item > .gsc-comment .gsc-comment-header,
+.gsc-timeline > .gsc-timeline-item > .gsc-comment .gsc-comment-content {
+    padding-left: 1.5em !important;
 }
 
-.gsc-reply {
-    padding-left: 0 !important;
-    margin-left: 0 !important;
-}
-
-.gsc-reply .gsc-comment-header {
-    padding-left: 0 !important;
-}
-
+/* Replies - no padding */
+.gsc-reply,
+.gsc-reply .gsc-comment-header,
 .gsc-reply .gsc-comment-content {
     padding-left: 0 !important;
+    margin-left: 0 !important;
 }
 
 /* Comment content */

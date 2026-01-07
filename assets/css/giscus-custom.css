@@ -101,7 +101,7 @@ main .gsc-comments .gsc-header {
 .gsc-comment-box-textarea:focus {
     border-color: #163313 !important;
     outline: none !important;
-    box-shadow: 0 0 0 1px #163313 !important;
+    box-shadow: none !important;
 }
 
 /* All text elements use site fonts */
@@ -136,8 +136,7 @@ img.avatar,
 .gsc-reply-avatar,
 .gsc-timeline-item .avatar,
 .gsc-comment .avatar-user,
-.gsc-tl-line,
-[class*="avatar"] {
+.gsc-tl-line {
     display: none !important;
     visibility: hidden !important;
     width: 0 !important;

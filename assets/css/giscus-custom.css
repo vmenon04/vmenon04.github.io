@@ -1,101 +1,64 @@
-/* Custom Giscus theme for minimal, elegant styling */
+/* Minimal Giscus Theme */
 
+/* CSS Variables for colors */
 main {
-    --color-prettylights-syntax-comment: #768390;
-    --color-prettylights-syntax-constant: #163313;
-    --color-prettylights-syntax-entity: #163313;
-    --color-prettylights-syntax-storage-modifier-import: #000;
-    --color-prettylights-syntax-entity-tag: #163313;
-    --color-prettylights-syntax-keyword: #163313;
-    --color-prettylights-syntax-string: #163313;
-    --color-prettylights-syntax-variable: #000;
-    --color-btn-text: #000;
-    --color-btn-bg: transparent;
-    --color-btn-border: #163313;
-    --color-btn-shadow: 0 0 transparent;
-    --color-btn-inset-shadow: 0 0 transparent;
-    --color-btn-hover-bg: #163313;
-    --color-btn-hover-border: #163313;
-    --color-btn-active-bg: #2d5a25;
-    --color-btn-active-border: #163313;
-    --color-btn-primary-text: #fff;
-    --color-btn-primary-bg: #163313;
-    --color-btn-primary-border: #163313;
-    --color-btn-primary-hover-bg: #2d5a25;
     --color-fg-default: #000;
     --color-fg-muted: #666;
-    --color-fg-subtle: #999;
     --color-canvas-default: #fff;
-    --color-canvas-overlay: #fff;
-    --color-canvas-inset: #fafafa;
-    --color-canvas-subtle: #f5f5f5;
-    --color-border-default: #e8e8e8;
-    --color-border-muted: #f0f0f0;
-    --color-neutral-muted: #e8e8e8;
+    --color-border-default: transparent;
+    --color-border-muted: transparent;
     --color-accent-fg: #163313;
-    --color-accent-emphasis: #163313;
-    --color-accent-muted: #e8e8e8;
-    --color-accent-subtle: #f5f5f5;
-    --color-success-fg: #163313;
-    --color-danger-fg: #c7254e;
+    --color-btn-text: #163313;
+    --color-btn-bg: transparent;
+    --color-btn-border: #163313;
+    --color-btn-hover-bg: #163313;
 }
 
-/* Hide all reactions completely */
+/* Base font */
+* {
+    font-family: Georgia, Garamond, 'Times New Roman', serif !important;
+}
+
+/* Hide header with comment count */
+.gsc-header {
+    display: none !important;
+}
+
+/* Hide all reactions */
 .gsc-reactions,
 .gsc-reactions-count,
-.gsc-social-reaction-summary-item,
 .gsc-direct-reaction-buttons {
     display: none !important;
 }
 
-/* Hide the Giscus header and comment count completely */
-.gsc-header,
-.gsc-comments > .gsc-header,
-.gsc-comment-count,
-.gsc-left-header,
-.gsc-right-header h4,
-main .gsc-comments .gsc-header {
+/* Hide all avatars */
+.gsc-comment-avatar,
+img.avatar,
+.avatar,
+img[src*="avatars"],
+.gsc-tl-line {
     display: none !important;
-    visibility: hidden !important;
+    width: 0 !important;
     height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
 }
 
-/* Comment styling - minimal borders */
-.gsc-comment {
-    border: none !important;
-    border-bottom: none !important;
-    border-radius: 0 !important;
-    margin-bottom: 1.5em !important;
-    padding-bottom: 0 !important;
-    background: transparent !important;
-}
-
-/* Comment box styling - minimal */
+/* Comment box */
 .gsc-comment-box {
     border: none !important;
-    border-radius: 0 !important;
-    margin-bottom: 2em !important;
     padding: 0 !important;
+    margin-bottom: 1.5em !important;
 }
 
 .gsc-comment-box-tabs {
     display: none !important;
 }
 
-.gsc-comment-box-textarea,
-.gsc-comment-box-textarea:focus,
-.gsc-comment-box-textarea:active {
+.gsc-comment-box-textarea {
     border: 1px solid #e8e8e8 !important;
     border-radius: 4px !important;
-    font-family: Georgia, Garamond, 'Times New Roman', serif !important;
+    padding: 1em !important;
     font-size: 11pt !important;
     line-height: 1.8 !important;
-    padding: 1em !important;
-    outline: none !important;
-    box-shadow: none !important;
-    max-width: 100% !important;
 }
 
 .gsc-comment-box-textarea:focus {
@@ -104,92 +67,19 @@ main .gsc-comments .gsc-header {
     box-shadow: none !important;
 }
 
-/* All text elements use site fonts */
-.gsc-comment-author,
-.gsc-comment-author a,
-.gsc-comment-header,
-.gsc-comment-content,
-.gsc-comment-content *,
-.gsc-comment-box-textarea,
-.gsc-comment-box *,
-.gsc-timeline *,
-button,
-input,
-textarea {
-    font-family: Georgia, Garamond, 'Times New Roman', serif !important;
+/* Comments */
+.gsc-comment {
+    border: none !important;
+    background: transparent !important;
+    margin-bottom: 1.5em !important;
+    padding: 0 !important;
 }
 
-/* Author name - using heading font */
-.gsc-comment-author,
+/* Author name */
 .gsc-comment-author a {
-    font-family: Georgia, Garamond, 'Times New Roman', serif !important;
     font-weight: 400 !important;
     color: #163313 !important;
-}
-
-/* Hide avatars/profile pictures - very aggressive */
-.gsc-comment-avatar,
-.gsc-avatar,
-.gsc-comment-avatar-container,
-img.avatar,
-.avatar-user,
-.gsc-reply-avatar,
-.gsc-timeline-item .avatar,
-.gsc-comment .avatar-user,
-.gsc-tl-line,
-.TimelineItem-avatar,
-a.author img,
-.avatar,
-img[alt*="avatar"],
-img[src*="avatars"] {
-    display: none !important;
-    visibility: hidden !important;
-    width: 0 !important;
-    height: 0 !important;
-    max-width: 0 !important;
-    max-height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    opacity: 0 !important;
-}
-
-/* Remove spacing where avatar used to be */
-.gsc-comment-header {
-    margin-bottom: 0.5em !important;
-    padding: 0 !important;
-    margin-left: 0 !important;
-}
-
-.gsc-comment {
-    padding-left: 0 !important;
-    margin-left: 0 !important;
-}
-
-/* Main/top-level comments - add padding via parent container */
-.gsc-main {
-    padding-left: 0 !important;
-}
-
-.gsc-comments {
-    padding-left: 0 !important;
-}
-
-/* All comments get consistent left padding */
-.gsc-comment-box-main,
-.gsc-comment-author,
-.gsc-comment-content {
-    margin-left: 0 !important;
-}
-
-/* Replies - indent them slightly */
-.gsc-replies {
-    padding-left: 2em !important;
-    margin-left: 0 !important;
-}
-
-.gsc-reply {
-    padding-left: 0 !important;
-    margin-left: 0 !important;
+    font-size: 0.95em !important;
 }
 
 /* Comment content */
@@ -197,81 +87,51 @@ img[src*="avatars"] {
     font-size: 11pt !important;
     line-height: 1.8 !important;
     color: #000 !important;
+    margin-top: 0.3em !important;
 }
 
-.gsc-comment-content p {
-    margin-bottom: 1em !important;
+/* Replies */
+.gsc-replies {
+    margin-left: 1.5em !important;
+    padding-left: 1em !important;
+    border-left: 1px solid #e8e8e8 !important;
 }
 
-/* Buttons - minimal styling */
-.gsc-comment-box-submit button,
+/* Buttons */
 button {
-    font-family: Cambria, Cochin, Georgia, 'Times New Roman', serif !important;
+    border: 1px solid #163313 !important;
     border-radius: 4px !important;
-    transition: all 0.2s ease !important;
-    border: 2px solid #163313 !important;
     background: transparent !important;
     color: #163313 !important;
-    padding: 0.7em 1.5em !important;
-    font-weight: 500 !important;
-    outline: none !important;
-    width: auto !important;
-    display: inline-block !important;
+    padding: 0.5em 1em !important;
+    font-size: 0.9em !important;
+    cursor: pointer !important;
 }
 
 button:hover {
     background: #163313 !important;
     color: #fff !important;
+}
+
+button:focus {
     outline: none !important;
+    box-shadow: none !important;
 }
 
-button:focus,
-button:active {
-    outline: none !important;
-    box-shadow: 0 0 0 1px #163313 !important;
+/* Hide metadata */
+.gsc-comment-header .color-text-secondary,
+.gsc-reply-count {
+    display: none !important;
 }
 
-/* Timeline - minimal spacing */
-.gsc-timeline {
-    margin-top: 2em !important;
-}
-
-/* Header spacing */
-.gsc-header {
-    padding-bottom: 1em !important;
-    border: none !important;
-}
-
-/* Sign in prompt - minimal */
+/* Sign in prompt */
 .gsc-comment-box-not-logged-in {
-    font-family: Georgia, Garamond, 'Times New Roman', serif !important;
     border: 1px solid #e8e8e8 !important;
     border-radius: 4px !important;
     padding: 1em !important;
 }
 
-/* Remove all unnecessary outlines and borders */
-* {
-    outline: none !important;
-}
-
+/* Remove outlines everywhere */
 *:focus {
     outline: none !important;
-}
-
-/* Hide reply count and other metadata */
-.gsc-reply-count {
-    display: none !important;
-}
-
-/* Minimize comment header */
-.gsc-comment-header {
-    margin-bottom: 0.5em !important;
-    padding: 0 !important;
-}
-
-/* Remove avatar borders */
-.gsc-comment-avatar img {
-    border-radius: 50% !important;
-    border: none !important;
 }

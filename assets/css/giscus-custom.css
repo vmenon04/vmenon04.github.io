@@ -87,9 +87,12 @@ main .gsc-comments .gsc-header {
     box-sizing: border-box !important;
 }
 
-.gsc-comment-box > * {
+.gsc-comment-box > *,
+.gsc-comment-box form,
+.gsc-comment-box-main {
     width: 100% !important;
     max-width: 100% !important;
+    box-sizing: border-box !important;
 }
 
 .gsc-comment-box-tabs {
@@ -107,8 +110,8 @@ main .gsc-comments .gsc-header {
     padding: 1em !important;
     outline: none !important;
     box-shadow: none !important;
-    width: 100% !important;
-    max-width: 100% !important;
+    width: calc(100% - 2px) !important;
+    max-width: calc(100% - 2px) !important;
     box-sizing: border-box !important;
 }
 

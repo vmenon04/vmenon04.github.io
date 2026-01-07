@@ -18,6 +18,14 @@ social:
     - https://www.linkedin.com/in/vmenon04/
     - https://github.com/vmenon04
 
+# Comments (Giscus)
+comments:
+  enabled: true
+  repo: vmenon04/vmenon04.github.io
+  repo_id: R_kgDOJJnF9Q
+  category: General
+  category_id: DIC_kwDOJJnF9c4C0q55
+
 # Build settings
 markdown: kramdown
 plugins:

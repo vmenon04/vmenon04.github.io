@@ -1,0 +1,186 @@
+/* Custom Giscus theme for minimal, elegant styling */
+
+main {
+    --color-prettylights-syntax-comment: #768390;
+    --color-prettylights-syntax-constant: #163313;
+    --color-prettylights-syntax-entity: #163313;
+    --color-prettylights-syntax-storage-modifier-import: #000;
+    --color-prettylights-syntax-entity-tag: #163313;
+    --color-prettylights-syntax-keyword: #163313;
+    --color-prettylights-syntax-string: #163313;
+    --color-prettylights-syntax-variable: #000;
+    --color-btn-text: #000;
+    --color-btn-bg: transparent;
+    --color-btn-border: #163313;
+    --color-btn-shadow: 0 0 transparent;
+    --color-btn-inset-shadow: 0 0 transparent;
+    --color-btn-hover-bg: #163313;
+    --color-btn-hover-border: #163313;
+    --color-btn-active-bg: #2d5a25;
+    --color-btn-active-border: #163313;
+    --color-btn-primary-text: #fff;
+    --color-btn-primary-bg: #163313;
+    --color-btn-primary-border: #163313;
+    --color-btn-primary-hover-bg: #2d5a25;
+    --color-fg-default: #000;
+    --color-fg-muted: #666;
+    --color-fg-subtle: #999;
+    --color-canvas-default: #fff;
+    --color-canvas-overlay: #fff;
+    --color-canvas-inset: #fafafa;
+    --color-canvas-subtle: #f5f5f5;
+    --color-border-default: #e8e8e8;
+    --color-border-muted: #f0f0f0;
+    --color-neutral-muted: #e8e8e8;
+    --color-accent-fg: #163313;
+    --color-accent-emphasis: #163313;
+    --color-accent-muted: #e8e8e8;
+    --color-accent-subtle: #f5f5f5;
+    --color-success-fg: #163313;
+    --color-danger-fg: #c7254e;
+}
+
+/* Hide all reactions completely */
+.gsc-reactions,
+.gsc-reactions-count,
+.gsc-social-reaction-summary-item,
+.gsc-direct-reaction-buttons {
+    display: none !important;
+}
+
+/* Comment styling - minimal borders */
+.gsc-comment {
+    border: none !important;
+    border-bottom: 1px solid #e8e8e8 !important;
+    border-radius: 0 !important;
+    margin-bottom: 2em !important;
+    padding-bottom: 2em !important;
+    background: transparent !important;
+}
+
+/* Comment box styling - minimal */
+.gsc-comment-box {
+    border: none !important;
+    border-radius: 0 !important;
+    margin-bottom: 2em !important;
+    padding: 0 !important;
+}
+
+.gsc-comment-box-tabs {
+    display: none !important;
+}
+
+.gsc-comment-box-textarea,
+.gsc-comment-box-textarea:focus,
+.gsc-comment-box-textarea:active {
+    border: 1px solid #e8e8e8 !important;
+    border-radius: 4px !important;
+    font-family: Georgia, Garamond, 'Times New Roman', serif !important;
+    font-size: 11pt !important;
+    line-height: 1.8 !important;
+    padding: 1em !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.gsc-comment-box-textarea:focus {
+    border-color: #163313 !important;
+}
+
+/* All text elements use site fonts */
+.gsc-comment-author,
+.gsc-comment-author a,
+.gsc-comment-header,
+.gsc-comment-content,
+.gsc-comment-content *,
+.gsc-comment-box-textarea,
+.gsc-comment-box *,
+.gsc-timeline *,
+button,
+input,
+textarea {
+    font-family: Georgia, Garamond, 'Times New Roman', serif !important;
+}
+
+/* Author name - using heading font */
+.gsc-comment-author,
+.gsc-comment-author a {
+    font-family: Cambria, Cochin, Georgia, 'Times New Roman', serif !important;
+    font-weight: 500 !important;
+    color: #163313 !important;
+}
+
+/* Comment content */
+.gsc-comment-content {
+    font-size: 11pt !important;
+    line-height: 1.8 !important;
+    color: #000 !important;
+}
+
+.gsc-comment-content p {
+    margin-bottom: 1em !important;
+}
+
+/* Buttons - minimal styling */
+.gsc-comment-box-submit button,
+button {
+    font-family: Cambria, Cochin, Georgia, 'Times New Roman', serif !important;
+    border-radius: 4px !important;
+    transition: all 0.2s ease !important;
+    border: 2px solid #163313 !important;
+    background: transparent !important;
+    color: #163313 !important;
+    padding: 0.7em 1.5em !important;
+    font-weight: 500 !important;
+    outline: none !important;
+}
+
+button:hover {
+    background: #163313 !important;
+    color: #fff !important;
+}
+
+/* Timeline - minimal spacing */
+.gsc-timeline {
+    margin-top: 2em !important;
+}
+
+/* Header spacing */
+.gsc-header {
+    padding-bottom: 1em !important;
+    border: none !important;
+}
+
+/* Sign in prompt - minimal */
+.gsc-comment-box-not-logged-in {
+    font-family: Georgia, Garamond, 'Times New Roman', serif !important;
+    border: 1px solid #e8e8e8 !important;
+    border-radius: 4px !important;
+    padding: 1em !important;
+}
+
+/* Remove all unnecessary outlines and borders */
+* {
+    outline: none !important;
+}
+
+*:focus {
+    outline: none !important;
+}
+
+/* Hide reply count and other metadata */
+.gsc-reply-count {
+    display: none !important;
+}
+
+/* Minimize comment header */
+.gsc-comment-header {
+    margin-bottom: 0.5em !important;
+    padding: 0 !important;
+}
+
+/* Remove avatar borders */
+.gsc-comment-avatar img {
+    border-radius: 50% !important;
+    border: none !important;
+}

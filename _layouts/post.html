@@ -27,4 +27,10 @@ layout: default
     <div class="page-content">
         {{ content }}
     </div>
+    
+    {% if site.comments.enabled %}
+    <div class="comments-section">
+        {% include comments.html %}
+    </div>
+    {% endif %}
 </article>

@@ -109,10 +109,12 @@ img[src*="avatars"],
     line-height: 1.8 !important;
     color: #000 !important;
     margin-top: 0.3em !important;
+    margin-bottom: 0.5em !important;
 }
 
 /* Replies */
 .gsc-replies {
+    margin-top: 0.5em !important;
     margin-left: 1.5em !important;
     padding-left: 1em !important;
     border-left: 1px solid #e8e8e8 !important;

@@ -550,6 +550,16 @@ img {
     letter-spacing: 0.5px;
 }
 
+.giscus-comments {
+    width: 100%;
+    max-width: 100%;
+}
+
+.giscus-comments iframe {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
 /* Tables */
 table {
     width: 100%;

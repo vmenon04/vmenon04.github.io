@@ -48,6 +48,13 @@ main {
     display: none !important;
 }
 
+/* Hide the "0 comments" header text */
+.gsc-header,
+.gsc-comments > .gsc-header,
+.gsc-comment-count {
+    display: none !important;
+}
+
 /* Comment styling - minimal borders */
 .gsc-comment {
     border: none !important;

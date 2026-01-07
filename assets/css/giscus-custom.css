@@ -65,10 +65,10 @@ main .gsc-comments .gsc-header {
 /* Comment styling - minimal borders */
 .gsc-comment {
     border: none !important;
-    border-bottom: 1px solid #e8e8e8 !important;
+    border-bottom: none !important;
     border-radius: 0 !important;
-    margin-bottom: 2em !important;
-    padding-bottom: 1em !important;
+    margin-bottom: 1.5em !important;
+    padding-bottom: 0 !important;
     background: transparent !important;
 }
 
@@ -157,7 +157,7 @@ img[src*="avatars"] {
 .gsc-comment-header {
     margin-bottom: 0.5em !important;
     padding: 0 !important;
-    padding-left: 0.5em !important;
+    padding-left: 1em !important;
     margin-left: 0 !important;
 }
 
@@ -166,12 +166,20 @@ img[src*="avatars"] {
     margin-left: 0 !important;
 }
 
+.gsc-comment-content {
+    padding-left: 1em !important;
+}
+
 .gsc-reply {
     padding-left: 0 !important;
     margin-left: 0 !important;
 }
 
 .gsc-reply .gsc-comment-header {
+    padding-left: 0 !important;
+}
+
+.gsc-reply .gsc-comment-content {
     padding-left: 0 !important;
 }
 

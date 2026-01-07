@@ -78,6 +78,7 @@ main .gsc-comments .gsc-header {
     border-radius: 0 !important;
     margin-bottom: 2em !important;
     padding: 0 !important;
+    max-width: 650px !important;
 }
 
 .gsc-comment-box-tabs {
@@ -95,6 +96,7 @@ main .gsc-comments .gsc-header {
     padding: 1em !important;
     outline: none !important;
     box-shadow: none !important;
+    max-width: 100% !important;
 }
 
 .gsc-comment-box-textarea:focus {
@@ -128,8 +130,28 @@ textarea {
 
 /* Hide avatars/profile pictures */
 .gsc-comment-avatar,
-.gsc-avatar {
+.gsc-avatar,
+.gsc-comment-avatar-container,
+img.avatar,
+.avatar-user,
+.gsc-reply-avatar {
     display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Remove spacing where avatar used to be */
+.gsc-comment-header {
+    margin-bottom: 0.5em !important;
+    padding: 0 !important;
+    padding-left: 0 !important;
+}
+
+.gsc-comment {
+    padding-left: 0 !important;
 }
 
 /* Comment content */

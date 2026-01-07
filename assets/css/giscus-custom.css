@@ -24,12 +24,13 @@ main {
     display: none !important;
 }
 
-/* Hide reactions (but NOT upvotes) */
+/* Hide all reactions including upvotes */
 .gsc-reactions,
 .gsc-reactions-count,
 .gsc-direct-reaction-buttons,
 .gsc-reactions-button,
-.gsc-social-reaction-summary {
+.gsc-social-reaction-summary,
+.gsc-upvote-button {
     display: none !important;
 }
 
@@ -40,7 +41,13 @@ main {
 .gsc-comment-box-main,
 .gsc-comment-box-write,
 .gsc-comment-box-preview,
-article {
+article,
+.gsc-comment-wrapper,
+.gsc-reply,
+.gsc-reply-box,
+[class*="border"],
+.color-border-default,
+.border-color-border-default {
     border: none !important;
     box-shadow: none !important;
 }
@@ -111,8 +118,8 @@ img[src*="avatars"],
     border-left: 1px solid #e8e8e8 !important;
 }
 
-/* Buttons (not upvote) */
-button:not(.gsc-upvote-button) {
+/* Buttons */
+button {
     border: 1px solid #163313 !important;
     border-radius: 4px !important;
     background: transparent !important;
@@ -122,7 +129,7 @@ button:not(.gsc-upvote-button) {
     cursor: pointer !important;
 }
 
-button:not(.gsc-upvote-button):hover {
+button:hover {
     background: #163313 !important;
     color: #fff !important;
 }
@@ -130,21 +137,6 @@ button:not(.gsc-upvote-button):hover {
 button:focus {
     outline: none !important;
     box-shadow: none !important;
-}
-
-/* Upvote button styling */
-.gsc-upvote-button {
-    border: none !important;
-    background: transparent !important;
-    color: #666 !important;
-    padding: 0.2em 0.5em !important;
-    font-size: 0.85em !important;
-    cursor: pointer !important;
-}
-
-.gsc-upvote-button:hover,
-.gsc-upvote-button.has-reacted {
-    color: #163313 !important;
 }
 
 /* Hide metadata */

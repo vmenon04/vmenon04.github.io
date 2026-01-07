@@ -121,9 +121,15 @@ textarea {
 /* Author name - using heading font */
 .gsc-comment-author,
 .gsc-comment-author a {
-    font-family: Cambria, Cochin, Georgia, 'Times New Roman', serif !important;
-    font-weight: 500 !important;
+    font-family: Georgia, Garamond, 'Times New Roman', serif !important;
+    font-weight: 400 !important;
     color: #163313 !important;
+}
+
+/* Hide avatars/profile pictures */
+.gsc-comment-avatar,
+.gsc-avatar {
+    display: none !important;
 }
 
 /* Comment content */

@@ -21,12 +21,8 @@ layout: default
     </div>
     {% endif %}
     
-    <div class="page-content">
-        {{ content }}
-    </div>
-    
     {% if page.links %}
-    <div class="page-links">
+    <div class="page-links page-links-top">
         {% for link in page.links %}
             {% if link[1] %}
                 <a href="{{ link[1] }}" target="_blank" class="page-link-button">
@@ -44,4 +40,8 @@ layout: default
         {% endfor %}
     </div>
     {% endif %}
+    
+    <div class="page-content">
+        {{ content }}
+    </div>
 </article>

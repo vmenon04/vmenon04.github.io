@@ -78,7 +78,6 @@ main .gsc-comments .gsc-header {
     border-radius: 0 !important;
     margin-bottom: 2em !important;
     padding: 0 !important;
-    max-width: 650px !important;
 }
 
 .gsc-comment-box-tabs {
@@ -128,19 +127,26 @@ textarea {
     color: #163313 !important;
 }
 
-/* Hide avatars/profile pictures */
+/* Hide avatars/profile pictures - very aggressive */
 .gsc-comment-avatar,
 .gsc-avatar,
 .gsc-comment-avatar-container,
 img.avatar,
 .avatar-user,
-.gsc-reply-avatar {
+.gsc-reply-avatar,
+.gsc-timeline-item .avatar,
+.gsc-comment .avatar-user,
+.gsc-tl-line,
+[class*="avatar"] {
     display: none !important;
     visibility: hidden !important;
     width: 0 !important;
     height: 0 !important;
+    max-width: 0 !important;
+    max-height: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
+    opacity: 0 !important;
 }
 
 /* Remove spacing where avatar used to be */
@@ -148,10 +154,17 @@ img.avatar,
     margin-bottom: 0.5em !important;
     padding: 0 !important;
     padding-left: 0 !important;
+    margin-left: 0 !important;
 }
 
 .gsc-comment {
     padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+
+.gsc-reply {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
 }
 
 /* Comment content */
@@ -177,6 +190,8 @@ button {
     padding: 0.7em 1.5em !important;
     font-weight: 500 !important;
     outline: none !important;
+    width: auto !important;
+    display: inline-block !important;
 }
 
 button:hover {

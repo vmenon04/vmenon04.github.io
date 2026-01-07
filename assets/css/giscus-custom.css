@@ -27,8 +27,18 @@ main {
 /* Hide all reactions */
 .gsc-reactions,
 .gsc-reactions-count,
-.gsc-direct-reaction-buttons {
+.gsc-direct-reaction-buttons,
+.gsc-reactions-button,
+.gsc-social-reaction-summary,
+.gsc-emoji-button {
     display: none !important;
+}
+
+/* Remove border around entire comments */
+.gsc-main,
+.gsc-comments {
+    border: none !important;
+    box-shadow: none !important;
 }
 
 /* Hide all avatars */

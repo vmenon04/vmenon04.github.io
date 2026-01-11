@@ -41,12 +41,12 @@ $$
 After doing so, we create a plot with the values of $a$ on the x-axis and the values of $b$ on the y-axis. If they covnerge, we color them white, else, black. It turns out that this process creates some super cool plots. See them below! Also, read the paper if you're more interested in the details.
 
 <div class="art-gallery">
-  <img src="/assets/images/art1_Large.png" alt="Attention Dynamics Art 1" onclick="openLightbox(this.src)">
-  <img src="/assets/images/art1679700_Large.png" alt="Attention Dynamics Art 2" onclick="openLightbox(this.src)">
-  <img src="/assets/images/art5227590_Large.png" alt="Attention Dynamics Art 3" onclick="openLightbox(this.src)">
-  <img src="/assets/images/art6306593_Large.png" alt="Attention Dynamics Art 4" onclick="openLightbox(this.src)">
-  <img src="/assets/images/art6549664_Large.png" alt="Attention Dynamics Art 5" onclick="openLightbox(this.src)">
-  <img src="/assets/images/art8012376_Large.png" alt="Attention Dynamics Art 6" onclick="openLightbox(this.src)">
+  <img src="/assets/images/art1_Large.png" alt="Attention Dynamics Art 1" title="Attention Dynamics Art 1" onclick="openLightbox(this.src)">
+  <img src="/assets/images/art1679700_Large.png" alt="Attention Dynamics Art 2" title="Attention Dynamics Art 2" onclick="openLightbox(this.src)">
+  <img src="/assets/images/art5227590_Large.png" alt="Attention Dynamics Art 3" title="Attention Dynamics Art 3" onclick="openLightbox(this.src)">
+  <img src="/assets/images/art6306593_Large.png" alt="Attention Dynamics Art 4" title="Attention Dynamics Art 4" onclick="openLightbox(this.src)">
+  <img src="/assets/images/art6549664_Large.png" alt="Attention Dynamics Art 5" title="Attention Dynamics Art 5" onclick="openLightbox(this.src)">
+  <img src="/assets/images/art8012376_Large.png" alt="Attention Dynamics Art 6" title="Attention Dynamics Art 6" onclick="openLightbox(this.src)">
 </div>
 
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">

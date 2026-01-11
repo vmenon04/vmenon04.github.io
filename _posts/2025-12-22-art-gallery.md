@@ -14,7 +14,7 @@ A curated collection of artworks I saw in the Kunsthistorisches Museum in Vienna
 ## Samuel van Hoogstraten - *Old Man at a Window* (c. 1653)
 
 <div class="gallery-item">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Samuel_van_Hoogstraten%2C_Kunsthistorisches_Museum_Wien%2C_Gem%C3%A4ldegalerie_-_Alter_Mann_im_Fenster_-_GG_378_-_Kunsthistorisches_Museum.jpg" alt="Old Man at a Window by Samuel van Hoogstraten">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Samuel_van_Hoogstraten%2C_Kunsthistorisches_Museum_Wien%2C_Gem%C3%A4ldegalerie_-_Alter_Mann_im_Fenster_-_GG_378_-_Kunsthistorisches_Museum.jpg" alt="Old Man at a Window by Samuel van Hoogstraten" title="Old Man at a Window by Samuel van Hoogstraten">
     <!-- <p class="artwork-details">
         Description here
     </p> -->
@@ -25,7 +25,7 @@ A curated collection of artworks I saw in the Kunsthistorisches Museum in Vienna
 ## Pieter Bruegel the Elder - *The Peasant and the Nest Robber* (1568)
 
 <div class="gallery-item">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Pieter_Bruegel_d._%C3%84._036.jpg/2560px-Pieter_Bruegel_d._%C3%84._036.jpg?20190624085332" alt="The Peasant and the Nest Robber by Pieter Bruegel the Elder">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Pieter_Bruegel_d._%C3%84._036.jpg/2560px-Pieter_Bruegel_d._%C3%84._036.jpg?20190624085332" alt="The Peasant and the Nest Robber by Pieter Bruegel the Elder" title="The Peasant and the Nest Robber by Pieter Bruegel the Elder">
     <!-- <p class="artwork-details">
         Description here
     </p> -->
@@ -36,7 +36,7 @@ A curated collection of artworks I saw in the Kunsthistorisches Museum in Vienna
 ## Johannes Vermeer - *The Art of Painting* (c. 1666-1668)
 
 <div class="gallery-item">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Jan_Vermeer_-_The_Art_of_Painting_-_Google_Art_Project.jpg/800px-Jan_Vermeer_-_The_Art_of_Painting_-_Google_Art_Project.jpg" alt="The Art of Painting by Johannes Vermeer">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Jan_Vermeer_-_The_Art_of_Painting_-_Google_Art_Project.jpg/800px-Jan_Vermeer_-_The_Art_of_Painting_-_Google_Art_Project.jpg" alt="The Art of Painting by Johannes Vermeer" title="The Art of Painting by Johannes Vermeer">
     <!-- <p class="artwork-details">
         Description here
     </p> -->
@@ -47,7 +47,7 @@ A curated collection of artworks I saw in the Kunsthistorisches Museum in Vienna
 ## Jacobus Vrel - *Woman at a Window* (c. 1654-1662)
 
 <div class="gallery-item">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Vrel_-_Frau_am_Fenster_-_KHM.jpg/960px-Vrel_-_Frau_am_Fenster_-_KHM.jpg" alt="Woman at a Window by Jacobus Vrel">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Vrel_-_Frau_am_Fenster_-_KHM.jpg/960px-Vrel_-_Frau_am_Fenster_-_KHM.jpg" alt="Woman at a Window by Jacobus Vrel" title="Woman at a Window by Jacobus Vrel">
     <!-- <p class="artwork-details">
         Description here
     </p> --></div>
@@ -57,7 +57,7 @@ A curated collection of artworks I saw in the Kunsthistorisches Museum in Vienna
 ## Rembrandt van Rijn - *Portrait of an Old Woman* (1654)
 
 <div class="gallery-item">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Rembrandt_Harmensz_van_Rijn%2C_%2C_Kunsthistorisches_Museum_Wien%2C_Gem%C3%A4ldegalerie_-_Die_Prophetin_Hanna_-_GG_408_-_Kunsthistorisches_Museum.jpg/960px-Rembrandt_Harmensz_van_Rijn%2C_%2C_Kunsthistorisches_Museum_Wien%2C_Gem%C3%A4ldegalerie_-_Die_Prophetin_Hanna_-_GG_408_-_Kunsthistorisches_Museum.jpg?20200705210401" alt="Portrait of an Old Woman by Rembrandt">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Rembrandt_Harmensz_van_Rijn%2C_%2C_Kunsthistorisches_Museum_Wien%2C_Gem%C3%A4ldegalerie_-_Die_Prophetin_Hanna_-_GG_408_-_Kunsthistorisches_Museum.jpg/960px-Rembrandt_Harmensz_van_Rijn%2C_%2C_Kunsthistorisches_Museum_Wien%2C_Gem%C3%A4ldegalerie_-_Die_Prophetin_Hanna_-_GG_408_-_Kunsthistorisches_Museum.jpg?20200705210401" alt="Portrait of an Old Woman by Rembrandt" title="Portrait of an Old Woman by Rembrandt">
     <!-- <p class="artwork-details">
         Description here
     </p> --></div>

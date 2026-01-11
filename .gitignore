@@ -22,5 +22,18 @@ vendor/
 # Personal notes
 *.log
 
+# LaTeX auxiliary files
+*.aux
+*.fdb_latexmk
+*.fls
+*.out
+*.synctex.gz
+*.toc
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.xdv
+
 # Hidden files
 *.hid

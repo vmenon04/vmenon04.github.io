@@ -62,6 +62,7 @@ exclude:
   - gemfiles/
   - README.md
   - LICENSE
+  - "*.tex"
 
 # Collections
 collections:

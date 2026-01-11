@@ -1,21 +1,21 @@
-/* Minimal Giscus Theme - Light Mode */
+/* Minimal Giscus Theme - Dark Mode */
 
 /* CSS Variables for colors */
 main {
-    --color-fg-default: #000;
-    --color-fg-muted: #666;
-    --color-canvas-default: #fff;
+    --color-fg-default: #e8e8e8;
+    --color-fg-muted: #a0a0a0;
+    --color-canvas-default: #1a1a1a;
     --color-border-default: transparent;
     --color-border-muted: transparent;
-    --color-accent-fg: #163313;
-    --color-btn-text: #163313;
+    --color-accent-fg: #7fb069;
+    --color-btn-text: #7fb069;
     --color-btn-bg: transparent;
-    --color-btn-border: #163313;
-    --color-btn-hover-bg: #163313;
-    --giscus-border: #e8e8e8;
-    --giscus-text: #000;
-    --giscus-accent: #163313;
-    --giscus-accent-hover: #fff;
+    --color-btn-border: #7fb069;
+    --color-btn-hover-bg: #7fb069;
+    --giscus-border: #404040;
+    --giscus-text: #e8e8e8;
+    --giscus-accent: #7fb069;
+    --giscus-accent-hover: #1a1a1a;
 }
 
 /* Base font */

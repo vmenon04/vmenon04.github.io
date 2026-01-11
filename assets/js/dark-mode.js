@@ -6,6 +6,21 @@
     // Apply theme immediately to prevent flash
     document.documentElement.setAttribute('data-theme', currentTheme);
     
+    // Function to update giscus theme
+    function updateGiscusTheme(theme) {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        
+        const giscusTheme = theme === 'dark' 
+            ? 'https://vmenon04.github.io/assets/css/giscus-dark.css'
+            : 'https://vmenon04.github.io/assets/css/giscus-custom.css';
+        
+        iframe.contentWindow.postMessage(
+            { giscus: { setConfig: { theme: giscusTheme } } },
+            'https://giscus.app'
+        );
+    }
+    
     // Wait for DOM to be ready
     document.addEventListener('DOMContentLoaded', function() {
         const toggleButton = document.getElementById('dark-mode-toggle');
@@ -33,6 +48,9 @@
             
             // Update button
             updateToggleButton(newTheme);
+            
+            // Update giscus theme
+            updateGiscusTheme(newTheme);
         });
     });
 })();

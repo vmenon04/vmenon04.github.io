@@ -1,18 +1,28 @@
 <div class="giscus-comments">
-    <script src="https://giscus.app/client.js"
-            data-repo="{{ site.comments.repo }}"
-            data-repo-id="{{ site.comments.repo_id }}"
-            data-category="{{ site.comments.category }}"
-            data-category-id="{{ site.comments.category_id }}"
-            data-mapping="pathname"
-            data-strict="0"
-            data-reactions-enabled="0"
-            data-emit-metadata="0"
-            data-input-position="top"
-            data-theme="https://vmenon04.github.io/assets/css/giscus-custom.css"
-            data-lang="en"
-            data-loading="lazy"
-            crossorigin="anonymous"
-            async>
+    <script>
+        // Determine initial giscus theme based on saved preference
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        const giscusTheme = savedTheme === 'dark' 
+            ? 'https://vmenon04.github.io/assets/css/giscus-dark.css'
+            : 'https://vmenon04.github.io/assets/css/giscus-custom.css';
+        
+        document.write(`
+            <script src="https://giscus.app/client.js"
+                data-repo="{{ site.comments.repo }}"
+                data-repo-id="{{ site.comments.repo_id }}"
+                data-category="{{ site.comments.category }}"
+                data-category-id="{{ site.comments.category_id }}"
+                data-mapping="pathname"
+                data-strict="0"
+                data-reactions-enabled="0"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="${giscusTheme}"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async>
+            <\/script>
+        `);
     </script>
 </div>

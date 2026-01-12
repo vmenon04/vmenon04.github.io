@@ -1,6 +1,6 @@
 ---
-layout: post
-title: "Word Cloud: Most Common Words on This Website"
+layout: page
+title: "Website Word Cloud"
 date: 2026-01-07
 excerpt: An interactive D3.js word cloud visualization showing the most frequently used words across this website.
 ---

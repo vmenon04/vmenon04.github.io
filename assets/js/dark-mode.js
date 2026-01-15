@@ -1,9 +1,6 @@
 // Dark Mode Toggle
 (function() {
-    // Check for saved theme preference or default to light mode
     const currentTheme = localStorage.getItem('theme') || 'light';
-    
-    // Apply theme immediately to prevent flash
     document.documentElement.setAttribute('data-theme', currentTheme);
     
     // Function to update giscus theme
@@ -21,7 +18,7 @@
         );
     }
     
-    // Wait for DOM to be ready
+    // Wait for DOM to be ready to set up the toggle button
     document.addEventListener('DOMContentLoaded', function() {
         const toggleButton = document.getElementById('dark-mode-toggle');
         
@@ -35,7 +32,8 @@
         }
         
         // Set initial button state
-        updateToggleButton(currentTheme);
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        updateToggleButton(savedTheme);
         
         // Toggle theme on button click
         toggleButton.addEventListener('click', function() {

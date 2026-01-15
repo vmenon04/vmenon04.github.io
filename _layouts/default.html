@@ -12,6 +12,8 @@
     {% seo %}
     {% include structured-data.html %}
     
+    <script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>
+    
     {% if site.google_analytics %}
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
@@ -31,7 +33,5 @@
     </main>
 
     {% include footer.html %}
-    
-    <script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>
 </body>
 </html>

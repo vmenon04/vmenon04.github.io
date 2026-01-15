@@ -90,6 +90,7 @@ h1, h2, h3 {
     color: var(--text-primary);
     font-weight: 300;
     font-family: Cambria, Cochin, Georgia, 'Times New Roman', serif;
+    transition: color 0.3s ease;
 }
 
 h1 {
@@ -240,13 +241,31 @@ header nav a {
     padding: 6px 12px;
     border-radius: 4px;
     color: var(--text-primary);
-    transition: all 0.2s ease;
+    transition: all 0.25s ease;
     display: block;
+    position: relative;
+}
+
+header nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-primary);
+    transition: all 0.25s ease;
+    transform: translateX(-50%);
 }
 
 header nav a:hover {
     background-color: var(--bg-secondary);
     color: var(--accent-primary);
+    transform: translateY(-2px);
+}
+
+header nav a:hover::after {
+    width: 60%;
 }
 
 header hr {
@@ -619,12 +638,31 @@ img {
     border: 2px solid var(--accent-primary);
     border-radius: 4px;
     font-weight: 500;
-    transition: all 0.2s;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-link-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--accent-primary);
+    transition: left 0.3s ease;
+    z-index: -1;
 }
 
 .page-link-button:hover {
-    background-color: var(--accent-primary);
     color: var(--bg-primary) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-sm);
+}
+
+.page-link-button:hover::before {
+    left: 0;
 }
 
 /* Comments Section */
@@ -654,6 +692,7 @@ table {
     box-shadow: 0 2px 8px var(--shadow-md);
     overflow: hidden;
     border-radius: 8px;
+    transition: box-shadow 0.3s ease;
 }
 
 table thead tr {
@@ -708,6 +747,7 @@ code {
     color: var(--code-text);
     border: 1px solid var(--code-border);
     margin: 0 0.1em;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 pre {
@@ -718,6 +758,7 @@ pre {
     overflow-x: auto;
     margin: 1.5em 0;
     line-height: 1.5;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 pre code {
@@ -983,6 +1024,7 @@ figcaption {
     border-top: 1px solid var(--border-light);
     font-size: 0.9em;
     color: var(--text-muted);
+    transition: border-color 0.3s ease, color 0.3s ease;
 }
 
 .footnotes ol {
@@ -1016,6 +1058,14 @@ a.footnote,
     border-bottom: none;
     color: var(--link-blue);
     font-weight: normal;
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+sup a:hover,
+a.footnote:hover,
+.page-content sup a:hover {
+    transform: scale(1.2);
 }
 
 /* Ensure footnote references aren't hidden behind fixed header when jumping back */
@@ -1044,4 +1094,83 @@ a.reversefootnote:hover {
 /* Ensure all anchor targets have proper scroll margin for fixed header */
 :target {
     scroll-margin-top: 100px;
+    animation: highlightTarget 2s ease;
+}
+
+@keyframes highlightTarget {
+    0% {
+        background-color: var(--accent-primary);
+        color: var(--bg-primary);
+        border-radius: 4px;
+    }
+    100% {
+        background-color: transparent;
+        color: inherit;
+    }
+}
+
+/* Page load fade-in animation */
+main {
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* Home/About/Contact page content staggered entrance */
+.home .left,
+.about .left,
+.contact .left {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+.home .right,
+.about .right,
+.contact .right {
+    animation: slideInRight 0.6s ease-out 0.15s both;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Focus styles for accessibility with nice animation */
+a:focus-visible,
+button:focus-visible,
+.page-link-button:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+/* Smooth loading indicator for images */
+img {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* Selection styling */
+::selection {
+    background-color: var(--accent-primary);
+    color: var(--bg-primary);
+}
+
+::-moz-selection {
+    background-color: var(--accent-primary);
+    color: var(--bg-primary);
 }

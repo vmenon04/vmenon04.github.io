@@ -5,10 +5,16 @@ date: 2025-12-09
 math: true
 excerpt: Representing decoder-only transformers using Kronecker products to reveal interpretable linear algebraic structure and the introducing the phenomenon of superposition in high-dimensional vector spaces.
 links:
-  paper: /assets/docs/some_structures_in_transformer_architectures.pdf
+  paper: https://drp.elte.hu/wordpress/wp-content/uploads/2026/01/Vasudev_Menon.pdf
 ---
 
-*This project was completed as part of the Budapest Semesters in Mathematics Advanced Directed Reading Program (Autumn 2025), supervised by Attila Jung at Eötvös Loránd University (ELTE).*
+This project was completed as part of the Budapest Semesters in Mathematics [Advanced Directed Reading Program](https://drp.elte.hu/) (Autumn 2025), supervised by Attila Jung at Eötvös Loránd University (ELTE).
+
+You can view the paper via the link above, or browse other [papers written by my peers](https://drp.elte.hu/index.php/adrp-reports/).
+
+A web version of the paper is given below.
+
+---
 
 ## Abstract
 Transformer models have become the backbone of modern large language models due to their unprecedented success and state-of-the-art performance across a wide range of tasks. However, their inner workings have remained difficult to interpret. In this project, we present a more interpretable construction of the decoder-only transformer model, focusing on a simplified, attention-only architecture. We show that the self-attention mechanism of a single attention head can be compactly written as a Kronecker product acting on the input embeddings, which highlights the separable nature of attention and provides a framework for interpreting information flow through zero- and one-layer transformers. Finally, we provide a brief introduction to the phenomenon of superposition in high-dimensional vector spaces, highlighting the increasing complexities as these models scale.
@@ -624,6 +630,12 @@ $$
 e_k \;\longmapsto\; v_k \;\longmapsto\; 0.5 e_k.
 $$
 
+{% include figure.html 
+   src="/assets/images/geometric_superposition_pipeline.svg" 
+   alt="Geometric Superposition Pipeline"
+   caption="Geometric Superposition Pipeline. The orthogonal input feature $e_1$ is compressed into a 2D subspace as vector $v_1$, where it interferes with other features, and is subsequently decoded into the output $\hat{x} = e_1$." 
+%}
+
 While the toy model relies on specific geometric arrangements (regular polygons), the phenomenon generalizes to high dimensions via the geometry of random projections. In fact, the following result from Johnson-Lindenstrauss (JL) guarantees that a cloud of points in a high-dimensional space can be projected into a much lower-dimensional space while approximately preserving distances (and therefore angles/correlations). Additionally, it is proven using *random* projections, suggesting that superposition does not require handcrafted algebraic constructions but can instead emerge from standard random weight matrices used in neural network initialization.
 
 **Theorem (Johnson-Lindenstrauss).** Let $0 < \varepsilon < 1$ and let $Z$ be a set of $N$ points in $\mathbb{R}^{n}$. Then there exists a linear map $f: \mathbb{R}^{n} \to \mathbb{R}^{m}$ with
@@ -783,6 +795,7 @@ In this project, we have introduced the Transformer architecture and subsequentl
 Using this framework, we introduced the "circuit" interpretation of one-layer attention-only transformers. We showed that instead of being considered "black boxes", they can be considered as an ensemble of Bigram and Skip-Trigram heuristics. The Query-Key and Output-Value circuits allow us to read off the model's behavior directly from its weights, identifying how specific tokens attend to and influence one another.
 
 Crucially, however, this interpretability encounters significant issues as model depth increases, leading to a combinatorial explosion of such "circuit" paths. The introduction of MLPs result in the phenomenon of superposition, which allows the network to compress features into low-dimensional subspaces, further obscuring interpretability. While the linear algebraic tools presented here provide a solid foundation, understanding the emergent complexity of deeper, non-linear transformers remains a critical task. Continued research is essential not only for optimizing model performance but for ensuring the transparency and safety of the powerful AI systems increasingly integrated into our society.
+
 
 ---
 

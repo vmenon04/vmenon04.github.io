@@ -1,0 +1,88 @@
+---
+layout: page
+title: Notes
+math: true
+---
+
+<div class="notes-list">
+    <p style="color: gray; font-size: 0.9em; margin-bottom: 2.5em;">
+        Notes and resources.
+    </p>
+
+    {% assign sorted_notes = site.notes | sort: 'date' | reverse %}
+    
+    {% if sorted_notes.size > 0 %}
+        {% for note in sorted_notes %}
+        <div class="note-item">
+            <h2><a href="{{ note.url | relative_url }}">{{ note.title }}</a></h2>
+            {% if note.course %}
+            <p class="note-course" style="color: var(--text-secondary); font-size: 0.95em;">{{ note.course }}</p>
+            {% endif %}
+            <p class="note-date">{{ note.date | date: "%B %-d, %Y" }}</p>
+            
+            {% if note.excerpt %}
+            <p class="note-excerpt">{{ note.excerpt }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No notes yet. Check back soon!</p>
+    {% endif %}
+</div>
+
+<style>
+.notes-list {
+    max-width: 800px;
+}
+
+.notes-list .note-item {
+    margin-bottom: 2.5em;
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid var(--border-secondary);
+}
+
+.notes-list .note-item:last-child {
+    border-bottom: none;
+}
+
+.notes-list .note-item h2 {
+    margin-bottom: 0.3em;
+    font-size: 1.4em;
+}
+
+.notes-list .note-item h2 a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.notes-list .note-item h2 a:hover {
+    opacity: 0.8;
+}
+
+.note-course {
+    margin: 0.2em 0 0.5em 0;
+    font-style: italic;
+}
+
+.note-date {
+    color: var(--text-secondary);
+    font-size: 0.9em;
+    margin: 0.5em 0;
+}
+
+.note-excerpt {
+    margin-top: 0.8em;
+    line-height: 1.6;
+}
+</style>
+
+<script>
+// Stagger the fade-in animations for note items
+document.addEventListener('DOMContentLoaded', function() {
+    const noteItems = document.querySelectorAll('.note-item');
+    noteItems.forEach((item, index) => {
+        item.style.animationDelay = `${index * 0.15}s`;
+    });
+});
+</script>

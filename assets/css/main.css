@@ -765,9 +765,9 @@ pre code {
     background-color: transparent;
     padding: 0;
     border: none;
-    color: var(--text-primary);
     font-size: 0.9em;
     margin: 0;
+    color: inherit;
 }
 
 /* Figure and Image Captions */

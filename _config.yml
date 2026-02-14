@@ -28,6 +28,12 @@ comments:
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    span:
+      line_numbers: false
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
@@ -69,6 +75,9 @@ collections:
   projects:
     output: true
     permalink: /projects/:name/
+  notes:
+    output: true
+    permalink: /notes/:name/
 
 # Defaults
 defaults:

@@ -1,0 +1,70 @@
+\subsection*{Problem 1}
+A 3-regular 4-uniform hypergraph has 20 vertices. How many edges does it have?
+
+\begin{proof}
+
+\end{proof}
+
+\subsection*{Problem 2}
+Show that there is no linear space with 2024 vertices such that $|e| \in \{3,4\}$ for every edge $e \in \mathcal{E}$.
+
+\begin{proof}
+Assume there exists a linear space with 2024 vertices. This linear space has property that no pair of vertices are covered by the same edge. Note that there are $\binom{2024}{2}=\frac{(2024)(2023)}{2}=2047276$ pairs of vertices. Moreover, we have that for every edge $e \in \mathcal{E}$, $|e| \in \{3,4\}$, and thus, every edge can accomodate $\binom{3}{2}=3$ vertices or $\binom{4}{2}=6$. We then must have that $3x+6y=2047276$ for $x,y \in \mathbb{N}$. Clearly, $2047276$ must then be divisible by 3, a contradiction. Thus, there is no linear space with 2024 vertices such that $|e| \in \{3,4\}$ for every edge $e \in \mathcal{E}$.
+
+\end{proof}
+
+\subsection*{Problem 3}
+How many (non-isomorphic) intersecting linear spaces are there on 100 vertices?
+
+\begin{proof}
+By Theorem 4, of $H=(V,E)$ is an intersecting linear space, then one of the following holds: $H$ is trivial (a single line), $H$ is a near pencil (all but one vertices on a line), or $|E| = |V| = k^2+k+1$ ($k\ge 2$) having the property that $H$ is $(k+1)$-regular and $(k+1)$-uniform. For an intersecting linear space with $|V|=100$, we cannot have that $|V| = k^2+k+1$ for some $k \in \mathbb{Z}$. Thus, we only have the trivial case and the near pencil case. Thus, there are 2 non-isomorphic intersecting linear spaces on 100 vertices.
+\end{proof}
+
+\subsection*{Problem 4}
+Are there linear spaces with 8 vertices and 5 edges?
+
+\begin{proof}
+No. Theorem 3 states, if $H=(V,E)$ is a non trivial linear space, then $|E|\ge |V|$. Here, $|E| < |V|$, and thus, there are no linear spaces with 8 vertices and 5 edges.
+\end{proof}
+
+\subsection*{Problem 5}
+Prove that $R(4) \leq 18$.
+
+\begin{proof}
+Consider $R(3,4)$. It is known that $R(3,4) = R(4,3) = 9$. Then, since $R(p,q)\le R(p-1,q)+R(p,q-1)$, we have that $R(4) = R(4,4) = R(3,4) + R(4,3) = 18$. Thus, $R(4) \leq 18$. 
+\end{proof}
+
+\subsection*{Problem 6}
+Prove that $R(3,5) \leq 14$.
+
+\begin{proof}
+    
+\end{proof}
+
+\subsection*{Problem 7}
+What is the chromatic number of $K_n^3$.
+
+\begin{proof}
+    
+\end{proof}
+
+\subsection*{Problem 8}
+Prove that there are no Steiner triple systems on $6k+5$ vertices.
+
+\begin{proof}
+    
+\end{proof}
+
+\subsection*{Problem 9}
+What is the chromatic number of the affine plane of order 3?
+
+\begin{proof}
+    
+\end{proof}
+
+\subsection*{Problem 10}
+Prove that in every 2-coloring of the edges of $K_{\infty}^3$ there is a monochromatic $K_{\infty}^3$.
+
+\begin{proof}
+    
+\end{proof}

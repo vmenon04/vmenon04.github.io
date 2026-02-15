@@ -1,0 +1,34 @@
+\subsection*{Problem 1}
+Prove that Pósa's theorem implies Ore's theorem
+
+\begin{proof}
+For a graph $G=(V,E)$, assume Ore's theorem's condition, that is, assume $d(u)+d(v) \geq n$ for every $u,v \in V$ with $uv \notin E$. Since $uv \notin E$, then $d(u) \leq n-2$, since $u$ cannot be connected to itself and the vertex $v$. Similarly, $d(v) \leq n-2$. Thus, $d(u)+d(v) \leq 2n-4$, and since $d(u) \geq 1$ and $d(v) \geq 1$, we have that $d(u)+d(v) \geq 2$. This implies that $2 \leq d(u)+d(v) \leq 2n-4 \implies 2 \leq 2n-4 \implies n \geq 3$. Now, suppose $1 \leq d_1 \leq d_2 \leq \dots \leq d_n < n$ is the degree sequence. Then, for all $i < j \leq \frac{n}{2}$, $i+j < n$, and since we know that by Ore's condition, $d_i + d_j \geq n$, we have that $i < j \leq i+j < n \leq d_i + d_j$, and thus, $i < j < d_i + d_j$. This implies that for all $d_i \geq i+1$, which is exactly Pósa's condition, and thus, there exists a Hamilton cycle. Therefore, Pósa's theorem implies Ore's theorem.
+\end{proof}
+
+\subsection*{Problem 2}
+Let $G$ be a graph on $2x+1$ vertices with all degrees at least $x$. Prove that $G$ contains a Hamilton path.
+
+\begin{proof}
+Suppose $G$ is a graph with $n=2x+1$ vertices and all vertices have degree at least $x$. Now, add a vertex $v_0$ and connect it to all $2x+1$ vertices, and thus, $d(v_0)=2x+1$. Consequently, we have $n=2x+2$ vertices such that for every vertex $v \in V$, $d(v) \geq x+1 = \frac{2x+2}{2} = \frac{n}{2}$. Thus, by Dirac's theorem, we have a Hamilton cycle. Removing the vertex $v_0$ from the graph would then leave it without a Hamilton cycle, but a Hamilton path would exist.
+\end{proof}
+
+\subsection*{Problem 3}
+Let $G$ be a regular simple graph on $2025$ vertices that contains a Hamilton cycle. Prove that $G$ also contains a Eulerian circuit. (Reminder: We say that a graph is regular if all of its vertices have equal degree.)
+
+\begin{proof}
+Suppose $G$ is a regular simple graph with $2025$ vertices that contains a Hamilton cycle. To prove that $G$ also contains an Eulerian circuit, we need to show that $G$ is connected and that every vertex in $G$ has an even degree. Since $G$ contains a Hamilton cycle, then we know it must be connected. Furthermore, since the graph is regular, suppose each vertex has degree $d$. Then, for 2025 vertices, the sum of the degrees, $\sum{d(v)}=2025d$. By the Handshake Lemma, we know that this sum must be even, and thus, $d$ must be even. Therefore, $G$ also contains a Eulerian circuit.
+\end{proof}
+
+\subsection*{Problem 4}
+An oriented complete graph is called a tournament. Show that every tournament contains a directed Hamilton path.
+
+\begin{proof}
+We will proceed by induction. For the base case, consider a tournament with 1 vertex. Trivially, there exists a directed Hamilton path. Now for the inductive step, suppose the tournament with $n$ vertices contains a directed Hamilton path enumerated as $v_1, v_2, \dots, v_n$. Consider adding a vertex $u$ and ensuring that all other vertices have a directed edge connecting it. If we have all other vertices outwardly pointing to $u$, then there exists the Hamilton path $v_1, v_2, \dots, v_n, u$. If $u$ has outwardly directed edges to all other vertices, then there exists the Hamilton path $u, v_1, v_2, \dots, v_n$. Consider the first vertex in the sequence $v_1, v_2, \dots, v_n$ that $u$ has an outward edge pointing to. Call this vertex $v_i$. Note that then, $v_{i-1}$ points to $u$, and thus, there exists the Hamilton path $v_1, v_2, \dots, v_{i-1}, u, v_i, \dots, v_n$. Therefore, every tournament contains a directed Hamilton path.
+\end{proof}
+
+\subsection*{Problem 5}
+Suppose that a graph $G$ can be partitioned into $k$ edge-disjoint spanning trees. Let $s$ be a specified node of $G$. Prove that $G$ can be partitioned into $k$ edge-disjoint spanning trees $T_1,\dots, T_k$ in such a way that the trees are equitable at $s$ in the sense that $|d_{T_i}(s) - d_{T_j}(s)| \leq 1$ for every $i, j \in [k]$.
+
+\begin{proof}
+TODO
+\end{proof}

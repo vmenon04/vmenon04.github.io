@@ -1,0 +1,137 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\usepackage{changepage}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{conj}{Conjecture}
+\newtheorem{claim}[thm]{Claim}
+\newtheorem*{claim*}{Claim}
+\newtheorem{prob}{Problem}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{prop}[thm]{Property}
+\newtheorem{note}[thm]{Notes}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{obj}{Objective}
+\newtheorem{rem}[thm]{Remark}
+
+\DeclareMathOperator{\lcm}{lcm}
+
+\newenvironment{solution}{
+    \vspace{1em}
+    \noindent\textit{Solution}.
+}{\par}
+
+\newenvironment{claimproof}{
+  \begin{proof}[Proof of Claim]\renewcommand{\qedsymbol}{}
+}{
+  \end{proof}
+}
+
+\newenvironment{direction}[1]
+{\par\medskip\noindent #1}
+{\par\medskip}
+
+\title{Graph Theory}
+
+\author{Vasu Menon}
+\date{Budapest Semesters in Math \\ Autumn 2025}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents % Generates a table of contents
+\newpage
+
+\section*{Syllabus}
+\label{sec:syllabus}
+\addcontentsline{toc}{section}{Syllabus}
+\input{syllabus.tex}
+\newpage
+
+\section*{Set 1}
+\label{sec:set1}
+\addcontentsline{toc}{section}{Set 1}
+\input{ps1.tex}
+\newpage
+
+\section*{Set 2}
+\label{sec:set2}
+\addcontentsline{toc}{section}{Set 2}
+\input{ps2.tex}
+\newpage
+
+\section*{Set 3}
+\label{sec:set3}
+\addcontentsline{toc}{section}{Set 3}
+\input{ps3.tex}
+\newpage
+
+\section*{Set 4}
+\label{sec:set4}
+\addcontentsline{toc}{section}{Set 4}
+\input{ps4.tex}
+\newpage
+
+\section*{Set 5}
+\label{sec:set5}
+\addcontentsline{toc}{section}{Set 5}
+\input{ps5.tex}
+\newpage
+
+\section*{Set 6}
+\label{sec:set6}
+\addcontentsline{toc}{section}{Set 6}
+\input{ps6.tex}
+\newpage
+
+\section*{Set 7}
+\label{sec:set7}
+\addcontentsline{toc}{section}{Set 7}
+\input{ps7.tex}
+\newpage
+
+\section*{Set 8}
+\label{sec:set8}
+\addcontentsline{toc}{section}{Set 8}
+\input{ps8.tex}
+\newpage
+
+\section*{Set 9}
+\label{sec:set9}
+\addcontentsline{toc}{section}{Set 9}
+\input{ps9.tex}
+\newpage
+
+
+\section*{Midterm 1}
+\label{sec:midterm1}
+\addcontentsline{toc}{section}{Midterm 1}
+\input{midterm_1.tex}
+\newpage
+
+\section*{Midterm 2}
+\label{sec:midterm2}
+\addcontentsline{toc}{section}{Midterm 2}
+\input{midterm_2.tex}
+\newpage
+
+\addcontentsline{toc}{section}{Scores}
+\input{scores.tex}
+
+\end{document}

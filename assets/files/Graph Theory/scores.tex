@@ -1,0 +1,160 @@
+\ExplSyntaxOn
+% Define the letter grade macro
+\cs_new:Npn \grade:n #1
+  {
+    \fp_compare:nTF { #1 < 40 } { F }
+    {
+      \fp_compare:nTF { #1 < 45 } { D- }
+      {
+        \fp_compare:nTF { #1 < 50 } { D }
+        {
+          \fp_compare:nTF { #1 < 55 } { D+ }
+          {
+            \fp_compare:nTF { #1 < 60 } { C- }
+            {
+              \fp_compare:nTF { #1 < 65 } { C }
+              {
+                \fp_compare:nTF { #1 < 70 } { C+ }
+                {
+                  \fp_compare:nTF { #1 < 75 } { B- }
+                  {
+                    \fp_compare:nTF { #1 < 80 } { B }
+                    {
+                      \fp_compare:nTF { #1 < 85 } { B+ }
+                      {
+                        \fp_compare:nTF { #1 < 90 } { A- }
+                        {
+                          \fp_compare:nTF { #1 < 95 } { A }
+                          { A+ }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+\NewDocumentCommand{\grade}{m}{\grade:n{#1}}
+\ExplSyntaxOff
+
+
+\begin{table}[h!]
+    \centering
+    \caption{Scores}
+    \renewcommand{\arraystretch}{1.2}
+    \setlength{\tabcolsep}{4pt}
+
+    \begin{tabular}{l *{10}{c} c}
+        \toprule
+        \textbf{Set} & \multicolumn{10}{c}{\textbf{Scores by Question}} & \textbf{Total} \\
+        \midrule
+        % --- Set 1 --- %
+        \textbf{\hyperref[sec:set1]{Set 1}} 
+            & 1.0 & 1.0 & 1.0 & 0.0 & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 
+            & 9.0 \\
+        \textbf{Max} 
+            & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 
+            & 10 \\
+        \midrule
+
+        % --- Set 2 --- %
+        \textbf{\hyperref[sec:set2]{Set 2}} 
+            & 3.5 & 1.0 & 1.0 & 2.0 & - & 1.0 & 0.5 & 1.0 & {} & {} 
+            & 10.0 \\
+        \textbf{Max} 
+            & 4 & 2 & 1 & 2 & 2 & 1 & 1 & 1 & {} & {} 
+            & 14 \\
+        \midrule
+
+        % --- Set 3 --- %
+        \textbf{\hyperref[sec:set3]{Set 3}} 
+            & 0.5 & 2.0 & 2.0 & 2.0 & - & {} & {} & {} & {} & {} 
+            & 6.5 \\
+        \textbf{Max} 
+            & 2 & 2 & 2 & 2 & 2 & {} & {} & {} & {} & {} 
+            & 10 \\
+        \midrule
+
+        % --- Set 4 --- %
+        \textbf{\hyperref[sec:set4]{Set 4}} 
+            & 1.0 & 0.3 & 1.5 & - & - & 2.0 & 0.1 & 2.0 & {} & {} 
+            & 6.9 \\
+        \textbf{Max} 
+            & 1 & 1 & 2 & 1 & 1 & 2 & 2 & 2 & {} & {}
+            & 10 \\
+        \midrule
+        
+        % --- Set 5 --- %
+        \textbf{\hyperref[sec:set5]{Set 5}} 
+            & 1.0 & 1.0 & - & 0.2 & - & 1.0 & 1.0 & {} & {} & {} 
+            & 4.2 \\
+        \textbf{Max} 
+            & 1 & 1 & 1 & 1 & 1 & 1 & 1 & {} & {} & {}
+            & 7 \\
+        \midrule
+
+        % --- Set 6 --- %
+        \textbf{\hyperref[sec:set6]{Set 6}} 
+            & 0.5 & 1.0 & - & 1.0 & - & {} & {} & {} & {} & {} 
+            & 2.5 \\
+        \textbf{Max} 
+            & 1 & 1 & 1 & 1 & 1 & {} & {} & {} & {} & {}
+            & 5 \\
+        \midrule
+
+        % --- Set 7 --- %
+        \textbf{\hyperref[sec:set7]{Set 7}} 
+            & 1.0 & 4.0 & 4.0 & 2.0 & 1.0 & {} & {} & {} & {} & {} 
+            & 12.0 \\
+        \textbf{Max} 
+            & 1 & 6 & 4 & 2 & 1 & {} & {} & {} & {} & {}
+            & 14 \\
+        \midrule
+
+        % --- Set 8 --- %
+        \textbf{\hyperref[sec:set8]{Set 8}} 
+            & 2.0 & 2.0 & 2.0 & 0.5 & 2.0 & {} & {} & {} & {} & {} 
+            & 8.5 \\
+        \textbf{Max} 
+            & 2 & 2 & 2 & 2 & 2 & {} & {} & {} & {} & {}
+            & 10 \\
+        \midrule
+
+        % --- Set 9 --- %
+        \textbf{\hyperref[sec:set9]{Set 9}} 
+            & 1.0 & 0.5 & 2.0 & 2.0 & 2.0 & {} & {} & {} & {} & {} 
+            & 7.5 \\
+        \textbf{Max} 
+            & 1 & 1 & 2 & 2 & 2 & {} & {} & {} & {} & {}
+            & 8 \\
+        \midrule
+
+        % --- Midterm 1 --- %
+        \textbf{\hyperref[sec:midterm1]{Midterm 1}} 
+            & {} & {} & {} & {} & {} & {} & {} & {} & {} & {} 
+            & 13 \\
+        \textbf{Max} 
+            & {} & {} & {} & {} & {} & {} & {} & {} & {} & {}
+            & 50 \\
+        \midrule
+
+        % --- Midterm 2 --- %
+        \textbf{\hyperref[sec:midterm2]{Midterm 2}} 
+            & {} & {} & {} & {} & {} & {} & {} & {} & {} & {} 
+            & 12 \\
+        \textbf{Max} 
+            & {} & {} & {} & {} & {} & {} & {} & {} & {} & {}
+            & 50 \\
+        \midrule
+
+        % --- Totals --- %
+        \bottomrule
+            {} & {} & {} & {} & {} & {} & {} & {} & {} & {} & {} 
+            & 92.1 (\grade{92.1}) \\
+
+    \end{tabular}
+\end{table}

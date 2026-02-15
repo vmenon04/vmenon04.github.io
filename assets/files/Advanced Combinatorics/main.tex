@@ -1,0 +1,124 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage[hidelinks]{hyperref}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}
+\newtheorem*{thm*}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{conj}{Conjecture}
+\newtheorem{claim}[thm]{Claim}
+\newtheorem*{claim*}{Claim}
+\newtheorem{prob}{Problem}
+
+\newtheorem{innernumberedthm}{Theorem}
+\newenvironment{numberedthm}[1]
+  {\renewcommand\theinnernumberedthm{#1}\innernumberedthm}
+  {\endinnernumberedthm}
+\providecommand{\innernumberedthmautorefname}{Theorem}
+\providecommand{\numberedthmautorefname}{Theorem}
+
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{prop}[thm]{Property}
+\newtheorem{note}[thm]{Notes}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{obj}{Objective}
+\newtheorem{rem}[thm]{Remark}
+
+\DeclareMathOperator{\lcm}{lcm}
+
+\newenvironment{solution}{%
+    \vspace{1em} % Add one line of vertical space
+    \noindent\textit{Solution.}%
+}{\par}
+
+\title{Advanced Combinatorics}
+
+\author{Vasu Menon}
+\date{Budapest Semesters in Math \\ Autumn 2025}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents % Generates a table of contents
+\newpage
+
+\section*{Syllabus}
+\label{sec:syllabus}
+\addcontentsline{toc}{section}{Syllabus}
+\input{syllabus.tex}
+\newpage
+
+\section*{Set 1}
+\label{sec:set1}
+\addcontentsline{toc}{section}{Set 1}
+\input{ps1.tex}
+\newpage
+
+\section*{Set 2}
+\label{sec:set2}
+\addcontentsline{toc}{section}{Set 2}
+\input{ps2.tex}
+\newpage
+
+\section*{Set 3}
+\label{sec:set3}
+\addcontentsline{toc}{section}{Set 3}
+\input{ps3.tex}
+\newpage
+
+\section*{Set 4}
+\label{sec:set4}
+\addcontentsline{toc}{section}{Set 4}
+\input{ps4.tex}
+\newpage
+
+\section*{Set 5}
+\label{sec:set5}
+\addcontentsline{toc}{section}{Set 5}
+\input{ps5.tex}
+\newpage
+
+\section*{Set 6}
+\label{sec:set6}
+\addcontentsline{toc}{section}{Set 6}
+\input{ps6.tex}
+\newpage
+
+\section*{Set 7}
+\label{sec:set7}
+\addcontentsline{toc}{section}{Set 7}
+\input{ps7.tex}
+\newpage
+
+\section*{Midterm Sample}
+\addcontentsline{toc}{section}{Midterm Sample}
+\input{midtermsample.tex}
+\newpage
+
+\section*{Midterm}
+\addcontentsline{toc}{section}{Midterm}
+\input{midterm.tex}
+\newpage
+
+\section*{Final}
+\addcontentsline{toc}{section}{Final}
+\input{final.tex}
+\newpage
+
+\addcontentsline{toc}{section}{Scores}
+\input{scores.tex}
+\newpage
+
+
+
+\end{document}

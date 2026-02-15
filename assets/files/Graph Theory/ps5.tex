@@ -1,0 +1,51 @@
+\subsection*{Problem 1}
+Let $G = (S, T; E)$ be a bipartite graph. Suppose that $G$ has a matching covering $X \subseteq S$ and another matching covering $Y \subseteq T$. Prove that $G$ contains a matching that covers every vertex in $X \cup Y$.
+
+\begin{proof}
+Denote the matching covering $X \subseteq S$ by $M_S \subseteq E$ and the matching covering $Y \subseteq T$ by $M_T \subseteq E$. Consider $M = M_S \cup M_T$. Note that every vertex is either an isolated vertex or has degree 1 or 2, in which case it is part some even cycle or path. Consequently, we have 3 distinct components, either an even cycle $C$, a path $P$, or isolated vertices. We can safely ignore all isolated vertices since isolated vertices are incident to no edges and is thus not covered by $M_S$ nor $M_T$, implying that is is not an element of $X \cup Y$. Consider the component $C$, which contains edges that alternative between $M_S$ and $M_T$. Without loss of generality, choose $M_T$ and take all the $M_T \cap C$. Here, all vertices in $C$ are covered by this choice of edges. Now consider the component $P$. If both endpoints of $P$ are in $X$, choose $M_S \cap P$. Here, these chosen edges alternate in the path $P$ but still cover $X \cap P$. If both endpoints of $P$ are in $Y$, choose $M_T \cap P$ by the same logic. In this way, we have essentially chosen a matching $M = M_S \cup M_T$ that covers $X \cup Y$, and thus, $G$ contains a matching that covers every vertex in $X \cup Y$. 
+\end{proof}
+
+\subsection*{Problem 2}
+Let $G = (S, T; E)$ be a bipartite graph, and for each $v \in S \cup T$, let $\prec_v$ be a linear order on the edges incident to $v$. Let $e = uv$ be the edge most preferred by $u$ with respect to $\prec_u$. Furthermore, assume that $e \prec_v f$ for some edge $f$. Prove that the sets of stable matchings of $G - f$ and $G$ coincide.
+
+\begin{proof}
+We will show that the sets of stable matchings of $G - f$ and $G$ coincide, that is, $f \notin M$ for any stable matching $M$ of $G$. Let $M$ be a stable matching of $G$. Assume $f \in M$ for the sake of contradiction. Then, we have $f=vw$ for some vertex $w$. Clearly, $e \notin M$. Since both $u$ and $v$ prefer $e$ over their current matching edge, $e$ is a blocking edge, and consequently, $M$ is not a stable matching, a contradiction. Thus, $f \notin M$, implying that the sets of stable matchings of $G - f$ and $G$ coincide.
+\end{proof}
+
+\subsection*{Problem 3}
+The outcome of the Gale-Shapley (proposal) algorithm is boy-optimal, meaning that each boy receives the best possible partner he can obtain in any stable matching, and girl-pessimal, meaning that each girl is matched to the worst possible partner she can obtain in any stable matching.
+
+\begin{proof}
+TODO
+\end{proof}
+
+\subsection*{Problem 4}
+Show that any two stable matchings cover the same set of vertices.
+
+\begin{proof}
+Suppose $M_1$ and $M_2$ are two matchings that do not cover the same vertices. So there exists some vertex $v$ that is matched in $M_1$ but not in $M_2$.
+Let $v$ be matched to the vertex $u$ and so $uv \in M_1$. Since $v$ is unmatched in $M_2$, $uv \notin M_2$ and thus $u$ is matched in $M_2$ to some other vertex $w$. Note that $u$ cannot be unmatched in $M_2$ since that would lead to $uv$ being unmatched edge with both endpoints unmatched in $M_2$, contradicting stability. Consider $u$ being matched to $w \ne v$. Since $uv \in M_1$, $u$ prefers $v$ over being unmatched and maybe even over $w$. If $u$ prefers $v$ over $w$, then $uv$ is a blocking edge in $M_2$. If $u$ prefers $w$ over $v$, then $v$ is matched to $u$ but may prefer another option in $M_1$, but in $M_2$, since $v$ is unmatched, $v$ would prefer $u$ over being unmatched. Either way, $uv$ is a blocking edge in $M_2$, and thus $M_2$ matching is not stable. Therefore, no vertex can be matched in $M_1$ and unmatched in $M_2$. Symmetrically, no vertex can be matched in $M_2$ and unmatched in $M_1$. So, the set of matched matched vertices is identical in $M_1$ and $M_2$ and thus, any two stable matchings cover the same set of vertices.
+\end{proof}
+
+\subsection*{Problem 5}
+If $M_1$ and $M_2$ are stable matchings in the bipartite graph $G$, and each boy chooses from $M_1 \cup M_2$ the edge he prefers more, then we obtain a stable matching $M_1 \lor M_2$, in which each girl is matched via the less preferred edge from $M_1 \cup M_2$. If, on the other hand, the girls choose their preferred edge, then we obtain stable matching $M_1 \land M_2$, in which each boy is matched via the less preferred edge from $M_1 \cup M_2$.
+
+\begin{proof}
+TODO
+\end{proof}
+
+\subsection*{Problem 6}
+Let $G = (V, E)$ be a (not necessarily bipartite) graph, and for each $v \in V$, let $\prec_v$ be a linear order on the edges incident to $v$. A matching $M \subseteq E$ is called stable if there is no edge $e = uv \in E \setminus M$ such that both $u$ and $v$ prefer $e$ to their respective edges in $M$. Prove that if $G$ is not bipartite, then there exists an assignment of preference lists to the vertices of $G$ for which no stable matching exists.
+
+\begin{proof}
+If $G$ is not bipartite, it must contain a cycle of odd length. Denote this cycle by $C=(v_0,...v_{n-1})$ where $n$ is an odd integer. For any vertex $v_i$, place the vertex appearing directly to its clockwise direction $v_{i+1}$ first and the vertex behind it $v_{i-1}$ second in the preference lists. Populate the rest of the preference list arbitrarily. Assume for the sake of contradiction that there exists a stable matching $M$. Because two adjacent edges cannot be in $M$ and the cycle is odd, then there must exist two adjacent edges that do not belong in $M$. In other words, there are two edges in the cycle $e_j = v_jv_{j+1}$ and $e_{j+1} = v_{j+1}v_{j+2}$ which are both not in $M$. Here, the vertex $v_{j+1}$ is not matched to neither its direct clockwise vertex nor its direct counterclockwise vertex and is therefore matched with some other vertex further down its preference list. The vertex $v_j$ prefers the edge $e_j$ connecting it to $v_{j+1}$ but since $e_j \notin M$, it is connected elsewhere. We then have two vertices $v_j$ and $v_{j+1}$ that prefer the edge $e_j$ over their current match which implies the matching is not stable, a contradiction.
+\end{proof}
+
+\subsection*{Problem 7}
+Let $k, n$ be positive integers satisfying $k < n/2$. Prove that for every $k$-element subset $A$ of $[n] = \{1, \dots, n\}$, one can add an element from $[n] \setminus A$ to $A$ in such a way that the resulting $\binom{n}{k}$ $(k + 1)$-element subsets of $[n]$ are all different.
+
+\begin{proof}
+Let $S$ be the collection of all $k$-element subsets of $[n]$ and let $T$ be the collection of all $(k+1)$-element subsets of $[n]$. We will use $S$ and $T$ to construct a disjoint graph $G$. The edges between $S$ and $T$ represents the ``adding an element'' process in our statement.
+Consider $A \in S$ to be a $k$-element subset and $B \in T$ to be a $(k+1)$-element subsets. Add an edge between $A$ and $B$ if and only if $A \subset B$. Note that the degree of $A$ is $n-k$ and the degree of $B$ is $k+1$. 
+Now consider an arbitrary subset $X \subseteq S$ and let $\Gamma(X)$ denote the neighborhood of $X$ in $G$. There are $|X|(n-k)$ total edges incident to $Z$ and $|\Gamma(X)|(k+1)$ total edges incident $\Gamma(X)$. We then have $|X|(n-k) \leq |\Gamma(X)|(k+1)$ and thus $\frac{|X|}{|\Gamma(X)|} \leq \frac{k+1}{n-k}$. Moreover, since we have that $k < n/2$, $n-k > k+1$ and thus $\frac{k+1}{n-k} \leq 1$. Consequently, $\frac{|X|}{|\Gamma(X)|} \leq 1$, implying $|X| \leq |\Gamma(X)|$. By our Corollary\footnote{Given $G=(S,T;E)$, there exists a matching covering S if and only if for all $X \subseteq S$, $|\Gamma(X)| \geq |X|$}, this implies that there exists an $S$ matching. Therefore, for every $k$-element subset of $[n]$, there exists a $(k+1)$-element subset that is the result of appending a seperate element from $[n]$. Thus, we have proven that for every $k$-element subset $A$ of $[n] = \{1, \dots, n\}$, one can add an element from $[n] \setminus A$ to $A$ in such a way that the resulting $\binom{n}{k}$ $(k + 1)$-element subsets of $[n]$ are all different.
+\end{proof}

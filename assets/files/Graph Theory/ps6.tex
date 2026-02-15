@@ -1,0 +1,60 @@
+Throughout, let $D = (V, A)$ be a digraph and $s, t \in V$ .
+
+\subsection*{Problem 1}
+Let $c \colon A \to \mathbb{R_+}$ be a capacity function, and let $x$ and $x'$ be maximum flows. Prove that if there exists an augmenting path from $s$ to some vertex $v$ in $D_x$, then there also exists one in $D_{x'}$.
+
+\begin{proof}
+    
+First, since $x$ and $x'$ are both maximum flows, the MFMC theorem implies that they carry their maximum capacities through all minimum cuts. Let $(S, V \setminus S)$ be the set of vertices reachable from $s$ in $D_x$ with $v \in S$. Now consider the minimum cut $(S, V \setminus S)$. Because $x'$ is also a maximum flow, it must carry the maximum flow through this same cut. That is, for any edge $(u,w)$ with $u \in S$ and $w \in V \setminus S$, we have $x'(u,w) = c(u,w)$. Consequently, in the graph $D_{x'}$, no forward edge crosses from $S$ to $V \setminus S$, but backward edges may exist. Now, for any vertex $u \in S$, there exists a path from $s$ to $u$ in $D_x$. Since $x'$ also maximizes flow across the same cut, the capacities within $S$ (edges between vertices in $S$) remain identical to $x$. Therefore, the same path from $s$ to $v$ that exists in $D_x$ exists in $D_{x'}$ restricted to $S$. Thus, there exists an augmenting path from $s$ to $v$ in $D_{x'}$ as well.
+
+\end{proof}
+
+
+\subsection*{Problem 2}
+Suppose that, in addition to the edge capacities $c \colon A \to \mathbb{R_+}$, each vertex is assigned an upper bound specifying the maximum amount of flow that may pass through it. Design an algorithm that computes a maximum flow subject to these vertex capacity constraints.
+
+\begin{solution}
+Our algorithm will augment $D$ to construct a new $D'=(V',A')$ in which we can run a known algorithm on. For each vertex $v \in V$, split it into two vertices $a_v,b_v$ and add a directed edge $(a_v,b_v)$ from $a_v$ to $b_v$ with the capacity $m(v)$, which will denote its maximum flow upper bound. To preserve the original edges and their capacities, for every $(u,v) \in A$ with capacity $c(u,v)$, add the edge $(b_u, a_v)$ with the same capacity $c(u,v)$. These changes contruct a new $V'$ and $A'$. We will then run the Edmond-Karp algorithm\footnote{Section 3.5 in Frank's book} which will then compute the maximum flow subject to the vertex capacity constraints. This ensures that any flow through $v$ in $D$ corresponds to a flow from $a_v$ to $b_v$ in $D'$, which is upper-bounded by $m(v)$.
+
+
+\end{solution}
+
+\subsection*{Problem 3}
+Let $c_1, \dots, c_k$ be capacity functions on the edges. Give an algorithm for deciding whether there exists an $s$-$t$ cut $S$ that is simultaneously a minimum cut for every $g_i$.
+
+\begin{solution}
+TODO (what is $g_i$?)
+\end{solution}
+
+\subsection*{Problem 4}
+Given a capacity function $c \colon A \to \mathbb{R_+}$, design an algorithm that decides whether the minimum $s$-$t$ cut is unique.
+
+\begin{solution}
+First, compute a maximum $s$-$t$ flow $x$ and construct the graph $D_x$. Now, let $A = { v \in V : v \text{ is reachable from } s \text{ in } D_x }$. Note that now the cut $(A, V \setminus A)$ is minimum, since in $D_x$, the edge $(u,v)$ is present if we can send more flow along it, and if $v \in V \setminus A$, then $v$ is not reachable from $s$ in $D_x$, and all edges from $A$ to $V \setminus A$ are at maximimum capacity with all edges going the other way having zero flow, implying that the total flow across the cut is maximal, and by the MFMC theorem, it is then a minimum cut.
+
+\noindent Next, let $B = { v \in V : t \text{ is reachable from } v \text{ in } D_x }$.
+For any minimum cut $(S, V \setminus S)$, observe that every vertex in $A$ must be in $S$, since vertices reachable from $s$ in $D_x$ cannot be on the $T$ side of a minimum cut, and that no vertex in $B$ can be in $S$, since vertices that can reach $t$ in $D_x$ must lie on the $T$ side of every minimum cut because sending them to $S$ would create a non-maximal edge crossing the cut, which contradicts the minimality of the cut.
+So for any minimum cut $S$, we have that $A \subseteq S \subseteq V \setminus B$.
+
+\noindent Consider the case $A \neq V \setminus B$, so there exist vertices outside $A \cup B$, which can be assigned either to $S$ or $T$ without changing the capacity of the cut, implying that the minimum cut is not unique.
+If $A = V \setminus B$, then there are no vertices outside $A \cup B$, so the only way to satisfy $A \subseteq S \subseteq V \setminus B$ is when $S = A$, implying that the minimum cut is unique.
+This means that the minimum cut $(A, V \setminus A)$ is unique if and only if every vertex belongs to $A \cup B = V$.
+
+\noindent Now we will construct an algorithm to create the sets $A$ and $B$. The algorithm is as follows:
+\begin{enumerate}
+    \item Compute a maximum flow $x$ (using Edmonds-Karp).
+    \item Construct the residual graph $D_x$.
+    \item Run BFS/DFS from $s$ in $D_x$ to find $A$.
+    \item Run BFS/DFS from $t$ in the reversed $D_x$ to find $B$.
+    \item If $A \cup B = V$ (equivalently $A = V \setminus B$), output that the minimum cut is unique; otherwise, it is not unique.
+\end{enumerate}
+
+\end{solution}
+
+
+\subsection*{Problem 5}
+Give an algorithm that finds all edges for which any positive increase in capacity results in an increase in the value of the maximum flow. Does such an edge always exist? How can these edges be identified?
+
+\begin{solution}
+TODO (use $D_x$)
+\end{solution}

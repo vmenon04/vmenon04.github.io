@@ -1,0 +1,70 @@
+Theorems used in the set (for reference):
+\begin{numberedthm}{1.2}\label{thm:1.2}
+Every simple graph is the intersection graph of some hypergraph.
+\end{numberedthm}
+
+\subsection*{Problem 1}
+Prove the following two properties of linear space (V, E):
+\begin{enumerate}
+    \item $\sum_{e \in E} \binom{|e|}{2} = \binom{|V|}{2}$ (global property)
+\item $\sum_{e \ni v} (|e|-1) = |V| - 1$ for every $v \in V$ (local property)
+\end{enumerate}
+
+\begin{proof}
+We will prove both properties seperately.
+\\
+\noindent\textbf{Property 1.}
+In the first property, the left side counts how many ways we can select two vertices from each edge. This is equivalent to the number of ways we can select two vertices from the graph itself, which is represented in the right side. Thus, $\sum_{e \in E} \binom{|e|}{2} = \binom{|V|}{2}$. 
+\\
+\noindent\textbf{Property 2.}
+In the second property, the left side goes through every vertex $v$ in the graph and counts how many edges contain it, subtracting one. Note that subtracting one counts the number of \textit{other} vertices are connected to $v$. Since we iterate through unique edges, we ultimately count the total number of vertices, except the first one that we started with. This is the same quantity counted by the right side, thus $\sum_{e \ni v} (|e|-1) = |V| - 1$ for every $v \in V$.
+\end{proof}
+
+\subsection*{Problem 2}
+Give a catalogue of linear spaces with six vertices. (All planar, follow the convention of Figure 1.6)
+
+\begin{solution}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.3\textwidth]{hw1_img.jpeg}
+\caption{Catalogue of linear spaces with 6 vertices}
+\label{fig:hw1_img}
+\end{figure}
+
+\end{solution}
+
+\subsection*{Problem 3}
+Prove or give a counterexample for the following two statements. Regular linear spaces are uniform. Uniform linear spaces are regular.
+
+\begin{proof}
+We will provide a counterexample for the first statement and a proof for the second.
+\\
+\noindent\textbf{Statement 1.}
+Consider the following linear space $H = (V,E)$ with $V = \{a, b, c, d\}$ and $E = \{\{a,b\},\{b,c,d\},\{a,c,d\}\}$. Note that each vertex has the same degree (2), so the linear space is regular, but each $e \in E$ have different cardinalities, thus, it is not uniform.
+\\
+\noindent\textbf{Statement 2.} Consider $H$ to be a uniform linear space. By definition, all edges in $H$ have the same degree, meaning each edge contains the same number of vertices. Additionally, since $H$ is a linear space, each pair $u,v \in V$ has a unique edge that contains them both. This implies that a vertex $u$ has $|V|-1$ vertices it is connected to. Additionally, since every edge has the same amount of vertices, say $n$, then the vertex $u$ shares every edge that it is in (call this quantity $m$) with $n-1$ other vertices. So each vertex $u$ is connected to $m(n-1)$ vertices. So we can equate these two expressions to get $m(n-1)=|V|-1$, and thus $m = \frac{|V|-1}{n-1}$. So the degree of each vertex is the same, and thus, $H$ is regular.
+\end{proof}
+
+
+\subsection*{Problem 4}
+Prove \autoref{thm:1.2} by induction.
+
+\begin{proof}
+Let $G=(V_G,E_G)$ be a graph. For the base case, assume this graph has 0 edges, and is thus a set of vertices with no connections. For each vertex in $G$, construct $H=(V_H, E_H)$ such that $V_H = V_G$ and $E_H$ = $\{v_i\}$ for each $v_i \in V_G$. These edges have no intersections, so the intersection of $H$ is $G$.
+For our inductive hypothesis, we will assume every graph with $n$ edges is the intersection graph of some hypergraph.  
+Given a graph $G'$ with $n+1$ edges, remove one edge $e$ to get $G$ with $n$ edges. Then, by our inductive hypothesis, $G$ is the intersection graph of some hypergraph $H$.  
+To construct $G'$, add a new edge to $H$ whose intersection with other edges corresponds exactly to the new edge $e$ in $G'$.  
+Thus, every graph can be realized as the intersection graph of some hypergraph.
+\end{proof}
+
+
+\subsection*{Problem 5}
+Prove \autoref{thm:1.2} using the notion of duality.
+
+\begin{proof}
+Let $G=(V,E)$ be a graph. Then, define $H = \big(E, \{F_v \mid v\in V\}\big)$ where $F_v = \{\,e\in E \mid e \text{ is incident to } v\,\}$ for all $v\in V$.
+In this construction, $H$ is the dual of $G$. Notice that for any two distinct vertices $u,v\in V$, we have 
+$F_u\cap F_v\neq \emptyset$ only when there exists $e\in E$ incident to both $u$ and $v$. This happens exactly when $\{u,v\}$ is an edge in $G$. So the intersection graph of the hypergraph $H$ and $G$ are the same.
+\end{proof}
+

@@ -1,0 +1,68 @@
+\subsection*{Problem 1}
+Let $D = (V, A)$ be a directed graph and let $c : A \to \mathbb{R}$ be a conservative weight function. Is it true that there always exists a nonnegative feasible potential?
+
+\begin{proof}
+Yes. Let $n = |V|$ and let $s \in V$ be some vertex. Suppose $\pi(v) \coloneq \min(\text{cost of a walk from s to v with at most } n-1 \text{ edges})$. Consider an edge $uv \in A$ and take the minimum walk from $s$ to $u$ with at most $n-1$ edges (which has cost $\pi(u)$) and add the edge $uv$ to the walk. Now we have a walk from $s$ to $v$ with a cost $\pi(u) + c(uv))$ and therfore, $\pi(v) \leq \pi(u) + c(uv)$. Rearranging yields $\pi(v)-\pi(u) \leq c(uv)$ and thus, $\pi$ is a feasible potential. Now, let $\pi'(v) \coloneq \pi(v) - m$ where $m$ is the minimum faesible potential among all vertices. Here, we have that $\pi'(v) \geq 0$ for all $v \in V$ and is thus a nonnegative feasible potential, and therefore, there always exists a nonnegative feasible potential.
+\end{proof}
+
+\subsection*{Problem 2}
+Let $D = (V, A)$ be a directed graph and let $c : A \to \mathbb{R}$ be a conservative weight function. Is it true that any subpath of a cheapest $s$-$t$ path is itself a cheapest path between its endpoints?
+
+\begin{proof}
+Yes. Let $\mu(s\text{-}t)$ be the minimum cost of an $s$-$t$ path. Let $u \in V$ be a vertex contained inside of this path. Here, $s$-$u$ is an arbitrary subpath of the $s$-$t$ path. Then, since $C(s\text{-}t)=\mu(s\text{-}t)$, we have that $\mu(s\text{-}t) = C(s\text{-}u) + C(u\text{-}t)$ where $C$ denotes the cost of a path. Note that since $c$ is conservative, there are no negative cycles, and $C$ is therefore well-defined. If $C(s\text{-}u)$ was not the minimum cost of an $s$-$u$, then $\mu(s\text{-}t)$ would no longer be minimal, thus, $C(s\text{-}u)=\mu(s\text{-}u)$. Therefore, $\mu(s\text{-}u)$ is the cost of the cheapest $s$-$u$ path, which is some subpath of the $s$-$t$ path.
+\end{proof}
+
+\subsection*{Problem 3}
+Let $D = (V, A)$ be a directed graph and let $c : A \to \mathbb{Z}$ be a conservative weight function. Suppose $\pi_1$ and $\pi_2$ are both feasible potentials with respect to $c$.
+\begin{enumerate}[\indent(a)]
+    \item  Prove that $\lfloor (\pi_1 + \pi_2)/2 
+    \rfloor$ and $\lceil (\pi_1 + \pi_2)/2 \rceil$ are also feasible potentials.
+    \item Prove that $\max(\pi_1, \pi_2)$ and $\min(\pi_1, \pi_2)$ are feasible potentials.
+\end{enumerate}
+
+\begin{proof}
+Assume $\pi_1(v) - \pi_1(u) \leq c(uv)$ and $\pi_2(v) - \pi_2(u) \leq c(uv)$ for all edges $uv \in A$
+\begin{enumerate}[\indent(a)]
+    \item Define $\pi_{avg} \coloneq \frac{\pi_1+\pi_2}{2}$. Then, summing up the two inequalities in our assumption and dividing by 2 yields $\frac{\pi_1(v)+\pi_2(v)}{2} - \frac{\pi_1(u)+\pi_2(u)}{2} \leq c(uv)\implies \pi_{avg}(v) - \pi_{avg}(u) \leq c(uv)$, and thus, $\pi_{avg}$ is feasible. Now, since the costs are integers, we have that $\lfloor \pi_{avg}(v) \rfloor - \lfloor \pi_{avg}(u) \rfloor \leq \pi_{avg}(v) - \pi_{avg}(u) \leq c(uv)$ and that $\lceil \pi_{avg}(v) \rceil - \lceil \pi_{avg}(u) \rceil \leq \pi_{avg}(v) - \pi_{avg}(u) \leq c(uv)$. Thus, $\lfloor (\pi_1 + \pi_2)/2 
+    \rfloor$ and $\lceil (\pi_1 + \pi_2)/2 \rceil$ are feasible potentials.
+    \item Define $\pi_{max}(v) \coloneq \max(\pi_1(v), \pi_2(v))$. Note that for any edge $uv \in A$, $\pi_{max} \leq \max(\pi_1(u) + c(uv), \pi_2(u) + c(u,v))$. Since $c(uv)$ is a constant, we have that $\max(\pi_1(u) + c(uv), \pi_2(u) + c(u,v)) = \pi_{max}(u)+c(uv)$. This implies that $\pi_{max}(v) \leq \pi_{max}(u) + c(u,v) \implies \pi_{max}(v) - \pi_{max}(u) \leq c(u,v)$, and thus, $\pi_{max}$ is a feasible potential. We will proceed similarly for $\pi_{min} \coloneq \min(\pi_1(v), \pi_2(v))$. Observe that $\pi_{min}(v) \leq \min(\pi_1(u) + c(uv), \pi_2(u)+c(uv)) \implies \min(\pi_1(u)+c(uv),\pi_2(u)+c(uv)) = \pi_{min}(u) + c(uv)$. So, $\pi_{min}(v) \leq \pi_{min}(u) + c(uv)$ and therefore, $\pi_{min}(v)-\pi_{min}(u) \leq c(uv)$. Thus, $\pi_{min}$ is a feasible potential as well.
+\end{enumerate}
+\end{proof}
+
+\subsection*{Problem 4}
+Let $D = (V, A)$ be a directed graph and let $c : A \to \mathbb{Z}$ be a conservative weight function. Furthermore, let $P$ be a cheapest $s$-$t$ path. Reverse the edges of $P$ and negate the costs of these edges. Show that the resulting cost function is also conservative in the graph thus obtained.
+
+\begin{proof}
+TODO
+\end{proof}
+
+\subsection*{Problem 5}
+Develop an algorithm to decide whether a directed graph with a conservative weight function contains a zero-weight cycle.
+
+\begin{proof}
+TODO
+\end{proof}
+
+\subsection*{Problem 6}
+Given a directed graph with a conservative weight function on the edges and a lower and upper bound specified for each vertex, how can one decide whether there exists a feasible potential within the given bounds?
+
+\begin{proof}
+We need to find way to detect if there exists a $\pi$ such that $\pi(v) - \pi(u) \leq c(u,v)$ and $l(v) \leq \pi(v) \leq u(v)$ for all $v \in V$. To do so, apply the following process:
+
+\noindent Consider a vertex $v_0$ with $\pi(v_0)=0$. Then, $\pi(v) \leq u(v) \implies \pi(v) - \pi(v_0) \leq u(v)$. Moreover, $\pi(v) \geq l(v) \implies \pi(v_0) - \pi(v) \leq -l(v)$. Consider these differences as directed edges on a graph, since they are of the same form as the feasible potential constraint $\pi(v) - \pi(u) \leq c(u,v)$. 
+Represent the inequality $\pi(v) - \pi(v_0) \leq u(v)$ as an edge from $v_0$ to $v$ with cost u(v), and represent the inequality $\pi(v_0) - \pi(v) \leq -l(v)$ as an edge from $v$ to $v_0$ with cost $-l(v)$. Note that in this graph, if there exists a negative cycle, then $\pi$ is unfeasable and thus, there does not exist a feasible potential within the given bounds. Therefore, we must now detect the existence of negative cycles precisely by using the Bellman-Ford algorithm. If Bellman-Ford detects a negative cycle, no feasible potential exists, otherwise, there is a feasible potential within the given bounds.
+\end{proof}
+
+\subsection*{Problem 7}
+Let $P$ be a path, and let $\mathcal{F}$ be a family of its subpaths. Develop an algorithm that select a collection of edge-disjoint subpaths from $\mathcal{F}$ so that the total length of the selected subpaths is maximized.
+
+\begin{solution}
+The algorithm will run as follows. First, take $\mathcal{F}$ and sort it so that each subpath is ordered based on the position of its ending vertex in $P$ where the smallest ending vertex is first. Then, initialize an empty list and iterate through every subpath $s$. Add $s$ to a list if $s$ does not share any edges with subpaths already in the list, otherwise, skip it. The collection of subpaths in the list will be the selection of edge-disjoint subpaths from $\mathcal{F}$ such that the total length of the selected subpaths is maximized.
+\end{solution}
+
+\subsection*{Problem 8}
+Let $D = (V, A)$ be a directed graph and let $c : A \to \mathbb{Z}$ be a conservative weight function. Recall that $\pi_{c}^{n}(v)$ denotes the minimum cost of a walk of length at most $n$ ending at $v$. Prove that among all nonpositive feasible potentials, $\pi_{c}^{n}(v)$ is the largest; that is, for any feasible potential $\pi$, we have $\pi(v) \leq \pi_{c}^{n}(v)$ for all $v \in V$.
+
+\begin{proof}
+Let $\pi$ be a nonpositive feasible potential. Let $W=(v_0, v_1,\dots,v_k)$ with $v_k = v$ and $k \leq n$ denote a walk of length at most $n$ ending at $v$. We know that $\pi(v_i)-\pi(v_{i+1}) \leq c(v_i, v_{i+1})$ for all $i$. Then, $\pi(v)-\pi(v_0) \leq \sum_{i=0}^{k-1} c(v_i, v_{i+1}) = C(W)$. Since $\pi$ is nonpositive, we have that $\pi(v_0) \leq 0$ and thus $\pi(v) \leq C(W)$. Since this holds for all walks of length at most $n$ ending at $v$, it also holds for the minimum cost walk, and thus, $\pi(v) \leq \pi_{c}^{n}(v)$ for all $v \in V$.
+\end{proof}

@@ -1,0 +1,130 @@
+A connected graph $G=(V,E)$ is \textit{2-edge-connected} if $G-e$ remains connected for any $e \in E$, and \textit{2-vertex-connected} if $|V| \geq 3$ and $G-v$ remains connected for any $v \in V$. An \textit{ear-decomposition} of $G$ is a sequence of subgraphs $(P_0, P_1, \dots, P_k)$ such that:
+\begin{enumerate}
+    \item $P_0$ is a cycle in $G$;
+    \item for each $i \geq 1$, $P_i$ is a path or a cycle in $G$ such that
+    \begin{itemize}
+        \item[-] if $P_i$ is a path, then its end vertices lie in $\bigcup_{j < i} P_j$, but its internal vertices are not contained in $\bigcup_{j < i} P_j$;
+        \item[-] if $P_i$ is a cycle, then it meets $\bigcup_{j < i} P_j$ in exactly one vertex, and its other vertices are not contained in $\bigcup_{j < i} P_j$.
+    \end{itemize}
+    \item $G = \bigcup_{i=0}^k P_i$.
+\end{enumerate}
+
+\subsection*{Problem 1}
+Prove that if $P_0,P_1, \dots, P_k$ is an ear-decomposition of a graph $G=(V,E)$, then $|E|=|V|+k$.
+
+\begin{proof}
+We will proceed inductively. Assume $P_0$ is the ear-decomposition of $G$. Note that $k=0$. Then $G$ is entirely a cycle $C=v_1,e_1, v_2, e_2, \dots, v_{n}, e_{n}, v_1$. Here, $|E| = n$ and $|V| = n$, and thus, $|E|=|V|+k$ holds true. Now assume that $P_0,P_1, \dots, P_{k-1}$ is the ear-decomposition of $G$ and $|E_{k-1}|=|V_{k-1}|+(k-1)$. Add another subgraph (ear) $P_k$ with $q$ edges. If $P_k$ is a cycle, then it meets the graph at exactly one vertex and so it adds its $q-1$ internal vertices. 
+Else, if $P_k$ is a path, then it meets the graph at two vertices (both of the endpoints), and thus it also introduces $q-1$ vertices. Now, we have that $|E_k| = |E_{k-1}| + q$ and $|V_k| = |V_{k-1}| + (q-1)$. Rearranging gives $|E_{k-1}| = |E_k| - q$ and $|V_{k-1}| = |V_k| - (q-1)$ Substituting these values in $|E_{k-1}|=|V_{k-1}|+(k-1)$ yields $|E_k| - q=|V_k| - (q-1)+(k-1)$. Simplifying gives $|E_k| = |V_k| + k$. Thus, by induction, if $P_0,P_1, \dots, P_k$ is an ear-decomposition of a graph $G=(V,E)$, then $|E|=|V|+k$.
+\end{proof}
+
+\subsection*{Problem 2}
+Let $G$ be a connected undirected graph. Prove the following equivalences.
+\begin{enumerate}[\indent(a)]
+    \item $G$ is 2-edge-connected if and only if it has an ear-decomposition
+    \item $G$ is 2-vertex-connected if and only if it has an open ear-decomposition with $|P_0| \geq 3$.
+    \item $G$ is factor-critical if and only if it has an odd ear-decomposition
+\end{enumerate}
+
+\begin{proof}
+The following are the proofs for the three equivalences.
+\medskip
+\\
+\noindent (a) We will prove both directions.
+\begin{adjustwidth}{2em}{0pt}
+\begin{direction}($\Rightarrow$) Assume $G$ is 2-edge-connected.
+We will construct an ear-decompo\-sition. Since $G$ is 2-edge-connected, the minimum degree is at least 2, so $G$ contains a cycle. Let $C_0$ be this cycle. Suppose we have constructed a subgraph $C_k$ which is an ear-decomposition. If $C_k = G$, we are done. If $V(C_k) \subset V(G)$ or $E(C_k) \subset E(G)$, since $G$ is connected, there exists an edge $e \in E(G) \setminus E(C_k)$ with at least one endpoint in $C_k$. If both endpoints of $e$ are in $C_k$, then $e$ itself forms an ear (a path of length 1). If $e = uv$ with $u \in C_k, v \notin C_k$, then because $G$ is 2-edge-connected, the edge $e$ is not a bridge in $G$. Therefore, $G - e$ is connected, which implies that there is a path from $v$ to $C_k$ in $G - e$. Let $P$ be a shortest such path. Then $P \cup \{e\}$ forms a path starting and ending in $C_k$ with all internal vertices not in $C_k$, which is a valid ear. We can then add this ear to form $C_{k+1}$. Finally, repeat this until $G$ is fully reconstructed.
+\end{direction}
+
+\begin{direction}($\Leftarrow$) Assume $G$ has an ear-decomposition $G=P_0, P_1, \dots, P_k$.  
+We will now proceed inductively on the number of ears $k$. We know that $P_0$ is a cycle, which is clearly 2-edge-connected. Now assume that $P_i$ is 2-edge-connected. Let $P_{i+1}=P_i \cup Q$, where $Q$ is an ear that is attached to the vertices $u,v \in V(P_i)$. Suppose now that we remove an edge $e$ from $P_{i+1}$. Then, if $e \in Q$, then $P_i$ is unaffected and is still connected. The removal of $e$ from $Q$ disconnects the path $Q$, but the vertices of $Q$ are still connected to $P_i$ through the remaining parts of the path attached to $u$ or $v$. Thus, $P_{i+1}-e$ is connected. If $e \in P_i$, then since $P_i$ is 2-edge-connected, $P_i-e$ remains connected. The path $Q$ remains attached to $P_i-e$ at $u$ and $v$, so the whole graph remains connected. Thus, $G$ is 2-edge-connected.
+\end{direction}
+\end{adjustwidth}
+
+\noindent (b) We will prove both directions.
+\begin{adjustwidth}{2em}{0pt}
+\begin{direction}($\Rightarrow$) Assume $G$ is 2-vertex-connected.  
+% ...
+\end{direction}
+\begin{direction}($\Leftarrow$) Assume $G$ has an open ear-decomposition with $|P_0|\ge 3$.  
+We will proceed inductively on the number of ears $k$. We know that $P_0$ is a cycle of length $\geq 3$, and this is clearly 2-vertex-connected. Now, assume that $P_i$ is 2-vertex-connected. We create $P_{i+1}$ by adding the open ear $Q$ with distinct endpoints $u,v \in V(P_i)$. Let $w$ be any vertex in $P_{i+1}$. We need to show that $P_{i+1}-w$ is connected. If $w$ is an ``internal'' vertex of the new ear $Q$, then $Q-w$ breaks into two components, but both are attached to $P_i$. Since $P_i$ is unaffected and still connected, the entire graph remains connected. Now, if $w \in V(P_i)$, then $P_i-w$ is connected by our inductive hypothesis. $Q$ has endpoints $u,v$, and even if $w=u$, the ear is still connected to $P_i$ at $v$ (since $u$ and $v$ are distinct), and so the vertices of $Q$ stay connected to the graph.
+\end{direction}
+\end{adjustwidth}
+
+\noindent (c) We will prove both directions.
+\begin{adjustwidth}{2em}{0pt}
+\begin{direction}($\Rightarrow$) Assume $G$ is factor-critical.  
+% ...
+\end{direction}
+
+\begin{direction}($\Leftarrow$) Assume $G$ has an odd ear-decomposition.  
+We will proceed inductively. $P_0$ is an odd cycle $C_{2k+1}$. Then, removing any vertex $v$ leaves a path $Q_{2k}$, which has a perfect matching (since we can take alternate edges and add it to the matching). Thus, $P_0$ is factor-critical. Now, assume that $P_i$ is factor-critical. We create $P_{i+1}$ by adding $Q$ where $Q$ is an odd ear. We need to show that for any $x in V(P_{i+1})$, $P_{i+1}-x$ has a perfect matching. We can proceed with case work. For the first case, suppose $x \in V(P_i)$. Since $P_i$ is factor-critical, $P_i-x$ has a perfect matching $M$. The ear $Q$ has an odd number of edges, and thus has an even number of internal vertices. The path $Q$, excluding the endpoints, consists of disjoint edges convering all internal vertices. Let this matching be $M_Q$. Then $M \cup M_Q$ is a perfect matching of $P_{i+1}-x$. For the second case, assume $x$ is an internal vertex of $Q$. Here, removing $x$ splits $Q$ into two paths, $Q_1$, which is attached to $u$, and $Q_2$, which is attached to $v$, where $u,v$ are distinct endpoints of the path. Since the total edges in $Q$ was odd, one of these paths has an odd length (with even vertices), and the other has even length (with odd vertices). We can match all vertices in $Q_1$ internally except the endpoint $u$ and we can match all the vertices in $Q_2$ similarly. Now, we need to match $u$ inside $P_i$. Since $P_i$ is factor-critical, $P_i-u$ has a perfect matching $M'$. Combing these will then give a perfect matching for $P_{i+1}-x$.
+\end{direction}
+\end{adjustwidth}
+\end{proof}
+
+\subsection*{Problem 3}
+\begin{enumerate}[(a)]
+    \item Prove that a connected graph $G=(V,E)$ is 2-edge-connected if and only if for every edge $e \in E$ there exists a cycle in $G$ containing $e$.
+    \item Prove that a connected graph $G$ is 2-vertex-connected if and only if for every pair of edges $e,f \in E$ there exists a cycle in $G$ containing both $e$ and $f$.
+\end{enumerate}
+
+\begin{proof}
+Firstly, consider the following claim:
+\begin{claim*}
+In a 2-vertex-connected graph $G$, for any cycle $C$ and any vertex $z \notin V(C)$, there exist two internally vertex-disjoint paths from $z$ to $C$ whose endpoints on $C$ are distinct.
+\end{claim*}
+\begin{claimproof}
+If every $z-C$ path met $C$ at the same vertex $v$, then removing $v$ would separate $z$ from the rest of the graph, contradicting 2-vertex-connectivity.
+\end{claimproof}
+\noindent (a) We will prove both directions.
+
+\begin{adjustwidth}{2em}{0pt}
+\begin{direction}($\Rightarrow$) Assume $G$ is 2-edge-connected. Then, for any edge $e$, $G-e$ is still connected. This means that $e$ is not a bridge (cut-edge). Note that an edge is a bridge when it does not lie on any cycle, and thus, every edge lies on some cycle.
+\end{direction}
+
+\begin{direction}($\Leftarrow$) Suppose that for every edge $e \in E$, there exists a cycle in $G$ containing $e$. Let $e=uv$ be an arbitrary edge. Since $e$ lies on a cycle $C$, there is a path in $C$ from $u$ to $v$ that does not use $e$. Thus even after removing $e$ there remains a $u$-$v$ path, and so $G-e$ is still connected. Since this holds for every $e$, $G$ is 2-edge-connected.
+\end{direction}
+\end{adjustwidth}
+
+\noindent (b) We will prove both directions.
+\begin{adjustwidth}{2em}{0pt}
+\begin{direction}($\Rightarrow$) Assume $G$ is $2$-vertex-connected. Take two edges $e$ and $f$. By the same argument in part (a) every edge lies on some cycle. So, pick a cycle $C$ that contains $e$. If $f$ is on $C$, then we are done. Else, let $f = xy$ be an edge not on $C$. Apply our above claim to the endpoints $x$ and $y$ relative to $C$. Thus, we have that
+\begin{enumerate}[1)]
+    \item There exist two internally disjoint paths from $x$ to $C$ meeting $C$ at some vertex $p$
+    \item There exist two internally disjoint paths from $y$ to $C$ meeting $C$ at 
+some vertex $q$.
+\end{enumerate}
+
+\noindent If we can choose those paths so that the attachment vertices $p$ and $q$ on $C$ are distinct, then we can take the edge of $C$ that is between $p$ and $q$ that contains the edge $e$ (one of the two edges between $p$ and $q$ along the cycle must contain $e$). Concatenating that edge with the two paths from $x$ and $y$ to $p$ and $q$ and the edge $xy$ creates a cycle that contains both $e$ and $f$.
+
+\noindent Now we need to eliminate the possibility that every choice of $x$-$C$ and $y$-$C$ paths meet $C$ only at the same vertex $r$. If that were the case, removing $r$ would then separate $x$ (and $y$) from the cycle $C \setminus \{r\}$, so $r$ would be a cut-vertex of $G$, contradicting our 2-vertex-connectivity property. Thus, we can choose paths with distinct endpoints on $C$, and the argument above completes the proof that some cycle contains both $e$ and $f$.
+\end{direction}
+
+\begin{direction}($\Leftarrow$)
+Suppose that for every pair of edges $e,f$ there is a cycle containing both. We will show $G$ has no cut-vertex. Suppose, for the sake of contradiction, that $v$ is a cut-vertex. Then, there are at least two components in $G - v$. Now, pick two distinct components $A$ and $B$ and then pick edges $e$ and $f$ with $e$ entirely inside $A \cup \{v\}$ and $f$ entirely inside $B \cup \{v\}$. This is possible because each component has at least one edge unless it is a single isolated vertex. If a component is a single vertex, then pick the other component that has an edge. Any cycle that contains both $e$ and $f$ would have to then contain $v$ and also include a path from $A$ to $B$ avoiding $v$, which is impossible because $v$ separates $A$ and $B$. This contradiction shows no cut-vertex exists, so $G$ is 2-vertex-connected.
+\end{direction}
+\end{adjustwidth}
+
+\end{proof}
+
+\subsection*{Problem 4}
+Let $G=(V,E)$ be a 2-edge-connected 3-regular graph. Prove that $G$ admits a perfect matching.
+
+\begin{proof}
+Let 
+\[ 
+\begin{aligned}
+D(G) &= \{ v \in V \mid \exists \text{ a maximum matching } M \text{ s.t. } v \text{ is not covered by } M \} 
+\\
+A(G) &= \Gamma(D(G)) \setminus D(G)
+\end{aligned}
+\]
+Now, for the sake of contradiction, assume $G$ does not have a perfect matching. Since there are vertices that must be left out of any matching, we know that $D(G)$ is not empty. Now, let $D = D(G)$ be the set of vertices missed by at least one maximum matching and let $A = N(D) \setminus D$ be the neighbors of $D$ in the rest of the graph. Then let $K_1, K_2, \dots, K_q$ be the connected components of the subgraph formed by the vertex set $D$. By Gallai's Lemma, each of these components must then be factor-critical. This means that $|V(K_i)|$ is odd, since removing 1 vertex produces a perfect matching, and there are no edges between $D$ and the rest of the graph except for those going to $A$. Now, we can count the number of edges $m$ connecting the set $D$ and the set $A$. For any component $K_i \subseteq D$, since $G$ is 3-regular, we have that $\sum_{v \in K_i} \deg(v) = 3|K_i|$. Moreover, since $|K_i|$ is odd, this sum is odd. Additionally, The sum of degrees is also equal to $2 \cdot (\text{edges inside } K_i) + (\text{edges leaving } K_i)$. The sum being odd implies that the number of edges leaving $K_i$ must then be odd. We know that since $G$ is 2-edge-connected (implying there are no bridge edges, see problem 2), the number of edges leaving $K_i$ cannot then be 1. Thus, there are at least 3 edges leaving every component $K_i$. If we let $q$ be the number of connected components in the set $D(G)$ and $m$ be the number of edges connecting the set $D$ to the set $A$, we then have that $m \ge 3q$. Furthermore, these $m$ edges must connect to vertices in $A$. Since $G$ is 3-regular, the vertices in $A$ can take at most 3 edges each, and so we have that $m \le 3|A|$. Combining the bounds, we have that $3q \le m \le 3|A|$, which implies that $q \le |A|$. However, we know that from the definition of maximum matchings that if we delete $A$, the graph breaks into the components $K_i$. A maximum matching must match vertices in $A$ to vertices in distinct components of $D$, which leaves at least $q - |A|$ vertices unmatched. Since we originally assumed $G$ has no perfect matching, we have that $q - |A| > 0$ and thus, $q > |A|$, which is a contradiction. Thus, our assumption was false, and $G$ must therefore have a perfect matching.
+\end{proof}
+
+\subsection*{Problem 5}
+Let $G$ be a graph on $n$ vertices with minimum degree at least $n/2$. Show that if $n$ is even, $G$ contains a perfect matching.
+
+\begin{proof}
+Note that if $n=2$, we have $G=K_2$, which trivially has a perfect matching. So now suppose that $n \geq 3$. Since we have that for all $n$ vertices $v \in G$, $d(v) \geq \frac{n}{2}$, we satisfy Dirac's condition, which then implies that there exists a Hamiltonian cycle $C$ in $G$. Let the vertices of this cycle in order be $v_1, v_2, \dots, v_{2k}$. We can proceed through this cycle and select every alternating edge to construct the matching $M = \{ (v_1, v_2), (v_3, v_4), \dots, (v_{2k-1}, v_{2k}) \}$. Since the cycle covers all vertices exactly once, the set $M$ hits every vertex exactly once. Thus, $M$ is a perfect matching.
+\end{proof}

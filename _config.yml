@@ -68,16 +68,13 @@ exclude:
   - gemfiles/
   - README.md
   - LICENSE
-  - "*.tex"
+  - compile.sh
 
 # Collections
 collections:
   projects:
     output: true
     permalink: /projects/:name/
-  notes:
-    output: true
-    permalink: /notes/:name/
 
 # Defaults
 defaults:

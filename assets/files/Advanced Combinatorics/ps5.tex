@@ -1,0 +1,63 @@
+\subsection*{Problem 21}
+Assume that $n \geq 3r!$. Prove that every $r$-coloring of the numbers in $[n]$ there is $x,y,z \in [n]$ such that they have the same color and $x+y=z$ ($x=y$ is permitted).
+
+\begin{proof}
+Consider the complete graph $K_{n+1}$ on vertices $V = \{0, 1, 2, \dots, n\}$. 
+For each pair of vertices $\{i, j\}$ with $i < j$, color the edge $\{i, j\}$ by the color assigned to the integer $j - i$ in the given coloring of $[n]$. This defines an $r$-coloring of the edges of $K_{n+1}$. Next, note that from HW \#14, we know that $R(3,\dots,3 \text{ ($r$ times)}) \le 3r! \le n+1$. By the definition of the Ramsey number, every $r$-coloring of the edges of $K_{n+1}$ must contain a monochromatic triangle. Let the vertices of this monochromatic triangle be $a < b < c$. 
+Since the triangle is monochromatic, all three edges $\{a, b\}$, $\{b, c\}$, and $\{a, c\}$ have the same color. From the way we colored the edges, this means that the three differences $b - a, c - b, c - a$ are all assigned the same color in $[n]$. But these satisfy the equation $(b - a) + (c - b) = c - a$. Thus, if we set $x = b - a$, $y = c - b$, and $z = c - a$, then $x, y, z \in [n]$ are of the same color and satisfy $x + y = z$.
+\end{proof}
+
+\subsection*{Problem 22}
+Prove that the vertices of any transitive tournament $T_n$ can be labeled with $1,2,\dots,n$ so that each edge is oriented from a smaller label to a larger label.
+
+\begin{proof}
+We will proceed by induction. For the base case $n=1$, the statement is trivial. For the inductive hypothesis, assume that the statement holds for some $n-1 \geq 1$. Now let $T_n$ be a transitive tournament on $n$ vertices. Note that a transitive tournament does not contain cycles, and thus has a ``start'' vertex (a source) and an ``end'' vertex (a sink)\footnote{For a transitive tournament $T$, pick any vertex $x$. If $x$ is not a source, then there exists a vertex $u_1 \to x$. If $u_1$ is not a source, then there exists a $u_2 \to u_1$ and so on. Because the tournament does not contain a cycle, this sequence must terminate, and thus, we must reach a vertex with no incoming edges, which is the source. Similarly, there exists a vertex with no outgoing edges, which is the sink.}. Now, let $v_{\text{min}}$ be the source and let $v_{\text{max}}$ be the sink. Consider removing the sink to yield $T_n - v_{\text{max}}$, which is still a transitive tournament on $n-1$ vertices. By our inductive hypothesis, we can label the vertices $T_n - v_{\text{max}}$ with labels $1, \dots, n-1$ such that all edges go from smaller to larger labels. Now if we put $v_{\text{max}}$ back, all edges can go into it, and thus we can assign  $v_{\text{max}}$ the largest label $n$, preserving the property that every edge goes from smaller to larger label. By induction, the claim holds for all $n \geq 1$. Thus, the vertices of any transitive tournament $T_n$ can be labeled with $1,2,\dots,n$ so that each edge is oriented from a smaller label to a larger label. 
+\end{proof}
+
+\subsection*{Problem 23}
+Prove that every tournament has a king: a vertex where any other vertex can be reached by a directed path with at most two edges.
+
+\begin{proof}
+Let $v$ be a vertex of maximum outdegree (the number of vertices with an incoming edge from $v$) in the tournament. Let $d$ be this outdegree. Define the set $\Gamma(v) = \{u : v \to u\}$ as the set of all vertices that have an incoming edge from $v$. Clearly, $|\Gamma(v)| = d$. Suppose, for the sake of contradiction, that there is a vertex $w$ that is not reachable from $v$ by any path of length $\leq 2$. That means the edge $v \to w$ does not exist and thus $w \to v$ exists, and no vertex $u \in \Gamma(v)$ has the edge $u \to w$ and thus for every $u \in \Gamma(v)$, we have $w \to u$. Therefore, $w$ has directed edges to $v$ and to every vertex in $\Gamma(v)$, and so the outdegree of $w$ is at least $d+1$. This contradicts the fact that $v$ is a vertex of maximum outdegree $d$. Thus, no such $w$ exists and every vertex is at distance at most $2$ from $v$, implying that $v$ is a king.
+\end{proof}
+
+\subsection*{Problem 24}
+A tournament is called \textit{strong} if there is a directed path from any vertex to any other. Prove that any strong tournament has a directed Hamiltonian cycle.
+
+\begin{proof}
+First, we will show that every tournament on $n$ vertices has a Hamiltonian path. We proceed by induction on the number of vertices $n$. For the base case $n = 1$ the statement is trivial. For the inductive step, suppose that every tournament on $n-1$ vertices has a Hamiltonian path. Let $T$ be a tournament on $n$ vertices, and remove an arbitrary vertex $v$. By the induction hypothesis, $T - v$ has a Hamiltonian path $P = u_1 \to u_2 \to \cdots \to u_{n-1}$. Now insert $v$ into this path. If $v \to u_1$, then $v \to u_1 \to u_2 \to \cdots \to u_{n-1}$ is a Hamiltonian path of $T$. Otherwise, there exists an index $i$ with $u_i \to v$ and $v \to u_{i+1}$. Then $u_1 \to \cdots \to u_i \to v \to u_{i+1} \to \cdots \to u_{n-1}$ is a Hamiltonian path of $T$. Such an $i$ must exist since each pair of vertices is connected in exactly one direction. Thus, every tournament on $n$ vertices has a Hamiltonian path.
+\\
+\noindent Now, let $T$ be a strong tournament, and let $P = v_1 \to v_2 \to \cdots \to v_n$ be a Hamiltonian path (which we showed above). If $v_n \to v_1$ is an edge, then $v_1 \to v_2 \to \cdots \to v_n \to v_1$ is already a Hamiltonian cycle. Otherwise, assume $v_1 \to v_n$. Since $T$ is strong, there exists a directed path from $v_n$ back to $v_1$: $v_n = w_0 \to w_1 \to \cdots \to w_k = v_1$. Let $w_j$ be the first vertex on this path that also belongs to the Hamiltonian path $P$. Then $w_j = v_i$ for some $1 \le i \le n-1$. The edge entering $v_i$ on the path above is $w_{j-1} \to v_i$. Now, one of the two edges $v_{i-1} \to w_{j-1}$ or $w_{j-1} \to v_{i-1}$ must exist in $T$. In either case, we can connect the paths together to obtain a directed cycle containing all vertices: $v_1 \to \cdots \to v_{i-1} \to w_{j-1} \to \cdots \to v_n \to v_1$. Thus, $T$ contains a directed Hamiltonian cycle.
+\end{proof}
+
+
+\subsection*{Problem 25}
+Assume (a real life situation) that ``knowing each other'' is not necessarily symmetric. Prove that at a party of nine persons one can always find either three strangers (no one knows any other) or three persons A,B,C such that A knows B and C and B knows C (a transitive triple). Show that the statement is not true for eight persons.
+
+\begin{proof}
+First, consider $R(3,4) \leq 9$. Suppose we utilize the colors white and black and an unoriented graph. Here, we know that any coloring of $K_9$, there exists a monochromatic (white) triangle ($K_3$) or a monochromatic (black) ``complete square'' ($K_4$). Consider each vertex as a person and white edges as ``not knowing each other'' and black edges as ``knowing each other''. Clearly, at a party of nine persons, there are three strangers who do not know each other (due to the existence of the white triangle). Additionally, there are four strangers that are part of a ``complete square'' ($K_4$). Consider the four vertices of this clique $\{a,b,c,d\}$. To prevent transitivity, we will construct cycles. Orient $a \to b \to c \to a$. Next, orient $b \to d \to a$. The edge between $c$ and $d$ are now unconnected, but any orientation of $c$ and $d$ (both $c \to d$ and $d \to c$) will result in $\{b,c,d\}$ being a transitive triple. Thus, orienting this 4 vertex clique $K_4$ will always result in a transitive triple.
+\\
+\noindent Now, to show that the statement is not true for eight persons, consider the following graph with $8$ vertices:
+
+\begin{center}
+    \begin{tikzpicture}[scale=2,
+    every node/.style={circle,fill=black,inner sep=2pt},
+    ->,
+    >=Stealth,
+    >={Stealth[length=5pt,width=4pt]}  % bigger arrowheads
+]
+    \node (v0) at (0:2cm) {};
+    \node (v1) at (45:2cm) {};
+    \node (v2) at (90:2cm) {};
+    \node (v3) at (135:2cm) {};
+    \node (v4) at (180:2cm) {};
+    \node (v5) at (225:2cm) {};
+    \node (v6) at (270:2cm) {};
+    \node (v7) at (315:2cm) {};
+
+    \foreach \i/\j in {0/2,0/3,1/3,1/4,2/4,2/5,3/5,3/6,4/6,4/7,5/7,5/0,6/0,6/1,7/1,7/2}
+        \draw[->, shorten >=6pt, shorten <=6pt] (v\i) -- (v\j);
+    \end{tikzpicture}
+\end{center}
+Here, the arrows denote the ``knowing each other'' relationship. An arrow from vertex $a$ to vertex $b$ means that person $a$ knows person $b$. Note that there does not exist three strangers nor does there exist a transitive triple.
+\end{proof}

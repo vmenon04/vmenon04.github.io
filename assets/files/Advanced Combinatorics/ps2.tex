@@ -1,0 +1,73 @@
+Theorems used in the set (for reference):
+\begin{numberedthm}{1.4}\label{thm:1.4}
+Assume $\mathcal{H} = (\mathcal{V}, \mathcal{E})$ is an intersecting linear space not isomorphic to a trivial one or to a near pencil. Then (for some integer $k \geq 2$)
+\[
+    |\mathcal{E}| = |\mathcal{V}| = k^2 + k + 1, \quad \mathcal{H} \text{ is } (k+1)\text{-uniform and } (k+1)\text{-regular}
+\]
+\end{numberedthm}
+
+\subsection*{Problem 6}
+Work out the details of the proof of \autoref{thm:1.4}
+
+\begin{proof}
+Note that if one edge covers all of $V$, clearly then, $H$ is trivial. If there are two edges $e_1,e_2$ that cover all of $V$, due to the fact that $H$ is linear, they meet at a unique vertex $r$. Additionally, without loss of generality, we know one of the edges, say $e_2$, has size $2$. Then $e_1$ contains all but one vertex, and every other edge is an edge with 2 vertices joining $r$ to a vertex of $e_1$. Thus $H$ is a near-pencil.
+
+\noindent Now, we will show that for the case where no 2 edge cover all of $V$, a linear intersecting space $G$ implies that $|V|=|E|=k^2+k+1$ where $G$ is $(k+1)$-uniform and $(k+1)$-regular. Consider $e_1,e_2 \in E$ and suppose $v \in V$ is a vertex such that $v \notin e_1 \cup e_2$. By the definition of linear spaces, every vertex in $e_1$ must be conected to $v$ by a unique edge, and such an edge must not intersect with both $e_1$ and $e_2$. Thus, there exists a bijection between every vertex $v \in e_1$ to another edge that must contain $v$ and one unique vertex in $e_2$. Note that we cannot have the case where such an edge contains more than one unique vertex from $e_1$ and $e_2$ since it would thus violate the conditions of a linear space by creating 2 edges that contain both vertices in $e_1$ or $e_2$. Therefore, $|e_1| = |e_2|$, and thus all edges have the same size.
+Next, we will show that $d(v)=|e|$ for any $e \in E$ and $v \in V$. Suppose $G$ is an intersecting linear space. Choose $e \in E$ and $v \in V$ such taht $v \notin e$. Since $G$ is linear, there must be a unique edge containing $v$ and every other vertex in $e$, and thus, $d(v) \geq |e|$. Assume for the sake of contradiction that $d(v) > |e|$. This implies that there exists $v_1 \in V$ such that $v_1 \notin e$ and $e_1$ such that $v, v_1 \in e_1$. Note that the fact that the edge containing $v, v_1$ cannot intersect with the edge $e$ without violating the definition of a linear space, and thus, no such extra edge exists and $d(v)=|e|$.
+Finally, we will show that $G$ being $(k+1)$-uniform and $(k+1)$-regular implies $|V|=|E|=k^2+k+1$. For every vertex $v$, note that there are $k+1$ edges containing it. Each $k+1$ edges has $k$ vertices contained in it excluding $v$. Thus, there are $k(k+1)$ other vertices. With $v$, there are $k(k+1)+1=k^2+k+1$ vertices, and thus, $|V|=|E|=k^2+k+1$.
+\end{proof}
+
+\subsection*{Problem 7}
+The Fano plane has cyclic representation: shift the set \{1,2,4\} (by adding 1 to its elements) six times, using arithmetic (mod 7). Find similar representations for the finite plane of order 3 and order 4.
+
+\begin{solution}
+For a finite plane of order $k$, we need to find a subset $S \subset Z_{k^2+k+1}$ with size $k+1$ such that no two ordered pairs in $S$ have the same difference using arithmetic (mod $k^2+k+1$). Instead of guess and check, we will use the following program to find such a subset.
+\begin{verbatim}
+import itertools
+
+k = 3
+num = k**2 + k + 1
+Z = list(range(num))
+
+for subset in itertools.combinations(Z, k+1):
+    diffset = set()
+    for i in subset:
+        for j in subset:
+            if i != j:
+                diffset.add((i - j) % num)
+
+    if len(diffset) == num-1:
+        print(subset)
+        break
+
+
+\end{verbatim}
+We find that for order 3, the representation is the set $\{0, 1, 3, 9\}$
+and for order 4, the representation is the set $\{0, 1, 4, 14, 16\}$
+\end{solution}
+
+\subsection*{Problem 8}
+Suppose that $\mathcal{H} = (V,\mathcal{E})$ has no singleton edges and $|e \cap f| \ne 1$ for all $e,f \in \mathcal{E}$. Prove that in every ordering of $V$ the greedy algorithm colors $V$ with at most two colors. The proof cannot be longer than three sentences!
+
+\begin{proof}
+Suppose for the sake of contradiction that the algorithm uses color with label 3 at a vertex $v$, and thus, there must be edges $e,f$ that contain $v$ with all vertices in $e$ colored with label 1 and all vertices in $f$ colored with label 2. Since there are no singleton edges, $e$ and $f$ have other vertices other than $v$, and they cannot be disjoint since then $e \cap f = \{v\}$, so they meet at some other vertex $u$. But since $u$ is either colored with a 1 or a 2, one of $e$ or $f$ cannot be monochromatic, which is a contradiction.
+\end{proof}
+
+\subsection*{Problem 9}
+Prove that Steiner triple systems have no proper 2-colorings.
+
+\begin{proof}
+Assume for the sake of contradiction that a Steiner triple system of order $k$ has a proper 2-coloring. We will suppose that the two colors are the integer labels 1 and 2.
+Without loss of generality, suppose we choose a vertex $a$ with color 1, and let the set of $B$ be the set of vertices colored 2.
+Consider all triples containing $a$. 
+Note that in a proper 2-coloring, each triple containing $a$ would include exactly one vertex that is colored 1. Additionally, every pair of vertices appears exactly in one triple. Thus, for each pair $\{a, b\}$ with $b \in B$, there is a triple containing both $a$ and $b$, and so for each $b \in B$, the triple containing $a$ and $b$ is determined by the pair $\{a, b\}$.
+Since each triple containing $a$ contains exactly 2 pairs, and since there are $v-1$ total pairs, $a$ is contained in $\frac{v-1}{2}$ triples. Since $a$ is colored 1, each of these triples must contain exactly one vertex colored 2. Thus, $|B| = \frac{v-1}{2}$. Since same argument above applies to any vertex colored 2, supposing that $A$ is the set of vertices colored 1, we have that $|A| = \frac{v-1}{2}$. Then the total number of vertices is $|A| + |B| = \frac{v-1}{2} + \frac{v-1}{2} = v - 1 \neq v$, which is a contradiction. Therefore, no proper 2-coloring exists for a Steiner triple system.
+\end{proof}
+
+
+\subsection*{Problem 10}
+Prove that finite planes of order at least 3 have proper 2-colorings.
+
+\begin{proof}
+Suppose we have a finite plane of order $k \geq 3$. Within this plane, we have a set of vertices $V$ and edges $E$ each edge contains $e+1 \geq 4$ vertices. We will then color the vertices with labels that are either a 1 or a 2. Suppose we choose an edge $e \in E$ and color one vertex with a 1 and the rest with a 2. Then, if we take any other vertex on $e$ and look at the other edge $f$ that contains it, we can observe that there are $k+1$ vertices on $f$. Thus, there are at least $3$ other uncolored vertices. Choose a vertex on $f$ and give it the color 1, and the rest the color 2. Repeating this process throughout entire finite planes will provide it a proper 2-coloring since every edge intersects our initial edge $e$ at exactly one vertex. Since $k \geq 3$, there are at least 3 additional vertices to color such that the edge contains both colors. Since every new edge contains at least one previously colored vertex, we can always color remaining points to avoid monochromatic edges. Therefore every edge will contain at least one vertex colored with a 1 and one vertex colored with a 2, so we have a proper 2-coloring.
+\end{proof}

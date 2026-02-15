@@ -1,0 +1,54 @@
+Theorems used in the set (for reference):
+\begin{numberedthm}{4.14}[Local Lemma]\label{thm:4.14}
+    Assume that $A_1, A_2, \dots, A_n$ are events with dependency bound $D$ and $pr(A_i) \leq \frac{1}{4D}$ for $1 \leq i \leq n$. Then
+    \[
+        pr \left( \bigcap\limits_{i=1}^{n}  \overline{A_i} \right) > 0
+    \]
+\end{numberedthm}
+\begin{numberedthm}{4.18}\label{thm:4.18}
+    $R(n)>m$ \text{ if } $4 \binom{n}{2} \binom{m}{n-2} < 2^{\binom{n}{2}-1}$
+\end{numberedthm}
+\begin{numberedthm}{4.19}[Joke]\label{thm:4.19}
+    The graph $K_3$ is $2$-chromatic.
+\end{numberedthm}
+\begin{proof}
+Let $V = [3]$ be the vertex set of triangle $T$. The probability space is the $2$-colorings of $V$ ($N = 8$ elements). Let $A_{ij}$ be the event that the edge $ij$ is monochromatic. Clearly, $pr(A_{ij}) = \frac{1}{2}$ for all the three choices of index pairs. Any pair of events is independent, for example, $pr(A_{12}A_{13})=pr(A_{12})pr(A_{13})=\frac{1}{4}$.
+\end{proof}
+
+\subsection*{Problem 26}
+Assume that $T_n$ is a regular tournament, i.e. $d^+(v)=d^-(v) = \frac{n-1}{2}$ for every vertex $v$. Let $X \cup Y$ be a partition of the vertex set of $T_n$ into two parts. Show that the number of edges from $X$ to $Y$ is the same as the number of edges from $Y$ to $X$.
+
+\begin{proof}
+Let $e(X,Y)$ denote the number of edges directed from $X$ to $Y$, and $e(Y,X)$ the number from $Y$ to $X$. We need to show that $e(X,Y)=e(Y,X)$. For a vertex $v$, let $\Gamma^+_X(v)$ be the number of out-neighbors of $v$ in $X$, and define $\Gamma^-_X(v)$, $\Gamma^+_Y(v)$, $\Gamma^-_Y(v)$ similarly. Since $T_n$ is regular, $\Gamma^+(v) = \Gamma^-(v)$ for every $v$. Summing over all $v \in X$ gives
+$\sum_{v \in X} ( \Gamma^+(v) - \Gamma^-(v) ) = 0$. Splitting each degree into contributions inside $X$ and to $Y$ yields $\sum_{v \in X} ( \Gamma^+_X(v) - \Gamma^-_X(v) ) + \sum_{v \in X} ( \Gamma^+_Y(v) - \Gamma^-_Y(v) ) = 0$. The first sum is zero because edges entirely inside $X$ contribute $+1$ to one endpoint and $-1$ to the other. The second sum equals $\sum_{v \in X} \Gamma^+_Y(v) - \sum_{v \in X} \Gamma^-_Y(v) = e(X,Y) - e(Y,X)$. So, $e(X,Y) - e(Y,X) = 0$, and thus $e(X,Y) = e(Y,X)$.
+\end{proof}
+
+\subsection*{Problem 27}
+Prove that any strong tournament $T_n$ contains a directed cycle $C_k$ for every $3 \leq k \leq n$.
+
+\begin{proof}
+We will proceed inductively. For the base case, assume $k=3$. For the sake of contradiction, suppose that $T_n$ does not contain $C_k$. This implies that the entire tournament is transitive, and by my reasoning from Problem 22, we have a source vertex. However, we assumed that $T_n$ is strong, but there is no vertex that points to the source vertex, a contradiction. Now, assume that the tournament contains a cycle $C_k$ of length $k$ (where $3 \leq k < n$). Let the vertices of the existing cycle be $C_k = v_1 \to v_2 \to \dots \to v_k \to v_1$. Since $k < n$, there exists at least one vertex $u$ that is not in the cycle. There are two possible cases regarding the vertices outside of this cycle. For the first case, assume there exists a vertex $u$ with mixed\footnote{$u$ has at least one edge pointing from the cycle to $u$ and at least one edge pointing from $u$ to the cycle.} edges to $C_k$. Because $u$ has both incoming and outgoing edges with the set $\{v_1, ..., v_k\}$, and because we are traversing a cycle, there must be a point where the direction switches. So, there must be an index $i$ such that $v_i \to u$ and $u \to v_{i+1}$, meaning that we can insert $u$ into the cycle between $v_i$ and $v_{i+1}$. This yields a new cycle $v_1 \to \dots \to v_i \to u \to v_{i+1} \to \dots \to v_1$, which is a a cycle of length $k+1$, $C_{k+1}$. For the other case, assume no vertex has ``mixed'' edges. So, for every vertex $x$ outside the cycle, $x$ either dominates all vertices in $C_k$ or is dominated by all vertices in $C_k$. We can divide the vertices outside the cycle into two sets: $S$ and $T$. Let $S$ be vertices that dominate $C_k$, and let $T$ be the vertices dominated by $C_k$. Note that these sets are nonempty, since otherwise it would violate the fact that $T_n$ is strong. Additionally, since the tournament is strong, there must be a path from $T$ to $S$. This implies there must be at least one edge $t \to s$ where $t \in T$ and $s \in S$. Now we will construct a cycle. Start at $s$ and go to $v_1$ and follow the cycle path $v_1 \to v_2 \to \dots \to v_{k-1}$. Then, go to $t$ and use the edge $t \to s$ to finish back at $s$. This constructs a cycle $s \to v_1 \to v_2 \to \dots \to v_{k-1} \to t \to s$. The length of this cycle is $k+1$, and so we have constructed a cycle $C_{k+1}$. Thus, by induction, any strong tournament $T_n$ contains a directed cycle $C_k$ for every $3 \leq k \leq n$.
+\end{proof}
+
+\subsection*{Problem 28}
+Prove \autoref{thm:4.18} applying \autoref{thm:4.14}.
+
+\begin{proof}
+    Consider the graph $K_m$. Color each edge red with probability $\frac{1}{2}$ and blue with probability $\frac{1}{2}$. Now, for every $n$ sized subset $i \subset [m]$, let $A_i$ denote the event that $K_n$ is monochromatic. Then, $pr(A_i)$ denotes the probabilty that all $\binom{n}{2}$ edges of $i$ is the same color. Thus, $pr(A_i) = pr(A_i \text{ is fully blue }) + pr(A_i \text{ is fully red} ) = \frac{1}{2}^{\binom{n}{2}} + \frac{1}{2}^{\binom{n}{2}} = 2 \cdot 2^{-\binom{n}{2}} = 2^{1-\binom{n}{2}}$. Now, consider the dependency bound $D$. Two events $A_i$ and $A_j$ are dependent if they share at least one edge (or two vertices). Since we can pick one of $\binom{n}{2}$ edges from $i$ to be the shared edge and one of $\binom{m}{n-2}$ other vertices in $j$, we have that $D \leq \binom{n}{2} \binom{m}{n-2}$ is an upper bound. By the Theorem 4.14 (Local Lemma), we have that if for every $A_i$, $pr(A_i) \leq \frac{1}{4D}$, then $pr( \bigcap_{i=1}^{n} \overline{A_i}) > 0$. That is, if $A_i$, $pr(A_i) \leq \frac{1}{4D}$, then there exists a 2-coloring with no monochromatic $K_n$ in $m$ vertices ($R(n) > m$). Substituting in our values for $pr(A_i)$ and $D$, we have $2^{1-\binom{n}{2}} \leq (4\binom{n}{2} \binom{m}{n-2})^{-1}$, and so, $\binom{n}{2} \binom{m}{n-2} \leq 2^{\binom{n}{2}-1}$. Thus, $R(n)>m$ if $ 4 \binom{n}{2} \binom{m}{n-2} < 2^{\binom{n}{2}-1}$, which is exactly Theorem 4.18.
+\end{proof}
+
+\subsection*{Problem 29}
+Prove that a fixed $k$-term A.P. in $[n]$ can intersect at most $\frac{k^2(n-1)}{k-1}$ other $k$-term A.P. in $[n]$.
+
+\begin{proof}
+First, note that for a $k$-term A.P. in $[n]$ with common difference $d$, we have that $(k-1)d \leq n-1$, and thus, $d \leq \frac{n-1}{k-1}$. Thus, $d$ can be any positive integer $1,\dots,\lfloor \frac{n-1}{k-1} \rfloor$. Now, let $x \in [n]$. For a fixed $d$, there are at most $k$ different $k$-term A.P. in $[n]$ that contain $x$, since $x$ can be any one of the $k$ positions in the progression. Thus, the number of $k$-term A.P. in $[n]$ that contain $x$ is at most $k \cdot \lfloor \frac{n-1}{k-1} \rfloor \leq k \cdot \frac{n-1}{k-1}$. Now, let $A$ be some fixed $k$-term A.P. in $[n]$. Every other $k$-term A.P. in $[n]$ would then intersect at least one of the $k$ elements in $A$. By summing over all $k$ elements $x \in A$, we can count the number of $k$-element A.P.s that intersect $A$ \textit{at least} once. Thus, we have that $\sum_{x \in A} |\{\text{A.P. containing x}\}| \leq k \cdot (k \cdot \frac{n-1}{k-1}) = \frac{k^2(n-1)}{k-1}$ is an upper bound for the number of A.P. meeting $A$. Thus, a fixed $k$-term A.P. in $[n]$ can intersect at most $\frac{k^2(n-1)}{k-1}$ other $k$-term A.P. in $[n]$.
+\end{proof}
+
+\subsection*{Problem 30}
+What is the mistake in the proof of \autoref{thm:4.19}?
+
+\begin{solution}
+The proof shows that the events $A_{ij}$ are pairwise independent; however, it assumes that this implies that all the events are mutually independent as well. Note that in a triangle with vertex set $V = [3]$, if edge $1$-$2$ is monochromatic and edge $1$-$3$ is also monochromatic, then edge $2$-$3$ must be monochromatic. The probability of this intersection is then $pr(A_{12} \cap A_{13} \cap A_{23})=\frac{1}{4}$. However, if they were mutually independent, we would have that $pr(A_{12} \cap A_{13} \cap A_{23}) = pr(A_{12})pr(A_{13})pr(A_{23}) = \frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{8} \neq \frac{1}{4}$. This shows that the probability of none of the events occurring (a proper 2-coloring) is zero.
+\end{solution}
+
+

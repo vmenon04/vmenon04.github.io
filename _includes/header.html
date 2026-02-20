@@ -5,7 +5,14 @@
             <ul>
                 <li><a href="{{ '/about.html' | relative_url }}">About</a></li>
                 <li><a href="{{ '/projects.html' | relative_url }}">Projects</a></li>
-                <li><a href="{{ '/blog.html' | relative_url }}">Blog</a></li>
+                <li class="nav-split">
+                    <span class="nav-split-label">Writing</span>
+                    <span class="nav-split-links">
+                        <a href="{{ '/blog.html' | relative_url }}">Blog</a>
+                        <span class="nav-split-dot">&middot;</span>
+                        <a href="{{ '/notes/' | relative_url }}">Notes</a>
+                    </span>
+                </li>
                 <li><a href="{{ '/contact.html' | relative_url }}">Contact</a></li>
                 <li><a href="{{ '/assets/docs/resume/VasudevMenon_Resume.pdf' | relative_url }}">Resume</a></li>
             </ul>

@@ -219,9 +219,7 @@ header {
 }
 
 header nav {
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
+    overflow: visible;
 }
 
 header nav ul {
@@ -230,6 +228,7 @@ header nav ul {
     gap: 20px;
     margin: 0;
     padding: 0;
+    overflow: visible;
 }
 
 header nav li {
@@ -274,6 +273,55 @@ header hr {
     border: 0;
     border-top: 1px solid var(--border-primary);
     margin: 0.5em 0;
+}
+
+/* Writing split */
+.nav-split {
+    position: relative;
+    cursor: default;
+}
+
+.nav-split-label {
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: var(--text-primary);
+    display: block;
+    transition: opacity 0.25s ease;
+    white-space: nowrap;
+}
+
+.nav-split-links {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.nav-split-links a {
+    padding: 6px 8px;
+}
+
+.nav-split-dot {
+    color: var(--text-secondary);
+    opacity: 0.35;
+    font-size: 0.9em;
+    user-select: none;
+}
+
+.nav-split:hover .nav-split-label {
+    opacity: 0;
+}
+
+.nav-split:hover .nav-split-links {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 /* Dark Mode Toggle - Fixed bottom right */
@@ -443,6 +491,22 @@ footer {
     font-size: 0.9em;
     text-align: center;
 }
+
+.footer-nav {
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: opacity 0.2s;
+}
+
+.footer-nav a:hover { opacity: 0.6; }
 
 footer hr {
     display: block;
@@ -922,19 +986,12 @@ figcaption {
     
     header nav {
         flex: 1;
-        overflow-x: auto;
-        overflow-y: hidden;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
+        overflow: visible;
     }
-    
-    header nav::-webkit-scrollbar {
-        display: none;
-    }
-    
+
     header nav ul {
         gap: 12px;
-        min-width: min-content;
+        overflow: visible;
     }
     
     header nav a {

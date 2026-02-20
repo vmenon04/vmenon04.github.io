@@ -1,0 +1,52 @@
+---
+layout: default
+---
+{% if page.math %}
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    }
+  };
+</script>
+{% endif %}
+
+<article class="page-article">
+    <div class="page-title">
+        <h1>{{ page.title }}</h1>
+        <div class="note-meta">
+            {% if page.date %}
+            <span class="post-date">{{ page.date | date: "%B %-d, %Y" }}</span>
+            {% endif %}
+            {% if page.source %}
+            {% if page.date %}<span class="note-meta-sep">·</span>{% endif %}
+            <a href="{{ page.source }}" target="_blank" class="note-source-link">Source ↗</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="page-content">
+        {{ content }}
+    </div>
+</article>
+
+<style>
+  .note-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5em;
+    margin-top: 0.3em;
+    font-size: 0.9em;
+    color: var(--text-secondary);
+  }
+  .note-meta-sep { opacity: 0.4; }
+  .note-source-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .note-source-link:hover { opacity: 0.6; }
+</style>

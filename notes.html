@@ -1,0 +1,55 @@
+---
+layout: page
+title: Notes
+permalink: /notes/
+---
+
+<div class="notes-list">
+  {% assign sorted_notes = site.notes | sort: 'date' | reverse %}
+  {% if sorted_notes.size == 0 %}
+    <p style="color: var(--text-secondary); font-size: 0.95em;">No notes yet.</p>
+  {% else %}
+    {% for note in sorted_notes %}
+    <div class="note-entry">
+      <a href="{{ note.url }}" class="note-title-link">{{ note.title }}</a>
+      <div class="note-entry-meta">
+        {% if note.date %}<span class="post-date">{{ note.date | date: "%B %-d, %Y" }}</span>{% endif %}
+        {% if note.description %}
+          {% if note.date %}<span style="opacity:0.4">·</span>{% endif %}
+          <span class="note-desc">{{ note.description }}</span>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  {% endif %}
+</div>
+
+<style>
+  .notes-list { max-width: 700px; margin: 2rem auto; padding: 0 1rem; }
+  .note-entry {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--border-secondary);
+  }
+  .note-title-link {
+    font-size: 1em;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .note-title-link:hover { opacity: 0.6; }
+  .note-entry-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 0.45em;
+    margin-top: 0.2em;
+    font-size: 0.85em;
+    color: var(--text-secondary);
+  }
+  .note-source-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .note-source-link:hover { opacity: 0.6; }
+  .note-desc { opacity: 0.7; }
+</style>

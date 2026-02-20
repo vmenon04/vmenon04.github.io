@@ -75,6 +75,9 @@ collections:
   projects:
     output: true
     permalink: /projects/:name/
+  notes:
+    output: true
+    permalink: /notes/:name/
 
 # Defaults
 defaults:
@@ -88,5 +91,10 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+  - scope:
+      path: ""
+      type: "notes"
+    values:
+      layout: "note"
 
 google_analytics: G-ER3625DPFD

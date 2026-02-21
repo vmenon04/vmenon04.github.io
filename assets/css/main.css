@@ -275,53 +275,99 @@ header hr {
     margin: 0.5em 0;
 }
 
-/* Writing split */
-.nav-split {
+/* Writing dropdown */
+.nav-dropdown {
     position: relative;
-    cursor: default;
 }
 
-.nav-split-label {
-    padding: 6px 12px;
-    border-radius: 4px;
-    color: var(--text-primary);
-    display: block;
-    transition: opacity 0.25s ease;
-    white-space: nowrap;
-}
-
-.nav-split-links {
+.nav-submenu {
     position: absolute;
-    top: 0;
+    top: calc(100% + 4px);
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    gap: 2px;
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 8px 4px;
+    min-width: 100px;
+    z-index: 1001;
     opacity: 0;
-    transition: opacity 0.25s ease;
-    white-space: nowrap;
+    visibility: hidden;
     pointer-events: none;
+    transition: opacity 0.15s ease, visibility 0.15s;
+    background: var(--bg-primary);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-.nav-split-links a {
-    padding: 6px 8px;
+/* Invisible bridge to keep hover active across the gap */
+.nav-submenu::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 10px;
 }
 
-.nav-split-dot {
-    color: var(--text-secondary);
-    opacity: 0.35;
-    font-size: 0.9em;
-    user-select: none;
-}
-
-.nav-split:hover .nav-split-label {
-    opacity: 0;
-}
-
-.nav-split:hover .nav-split-links {
+.nav-dropdown:hover .nav-submenu,
+.nav-dropdown:focus-within .nav-submenu {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
+}
+
+header nav .nav-submenu li {
+    display: block;
+    text-align: center;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Staggered entrance: each item delays a bit more */
+.nav-dropdown:hover .nav-submenu li:nth-child(1),
+.nav-dropdown:focus-within .nav-submenu li:nth-child(1) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.04s;
+}
+
+.nav-dropdown:hover .nav-submenu li:nth-child(2),
+.nav-dropdown:focus-within .nav-submenu li:nth-child(2) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+}
+
+.nav-dropdown:hover .nav-submenu li:nth-child(3),
+.nav-dropdown:focus-within .nav-submenu li:nth-child(3) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.16s;
+}
+
+.nav-submenu a {
+    padding: 5px 16px;
+    display: block;
+    white-space: nowrap;
+    font-size: 0.86em;
+    letter-spacing: 0.02em;
+    color: var(--text-secondary);
+    transition: color 0.18s ease, letter-spacing 0.18s ease;
+    border-radius: 4px;
+}
+
+.nav-submenu a::after {
+    display: none !important;
+}
+
+.nav-submenu a:hover {
+    color: var(--accent-primary);
+    background: transparent;
+    transform: none;
+    letter-spacing: 0.04em;
 }
 
 /* Dark Mode Toggle - Fixed bottom right */

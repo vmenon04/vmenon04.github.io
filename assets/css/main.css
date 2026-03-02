@@ -937,12 +937,15 @@ figcaption {
     
     header nav {
         flex: 1;
-        overflow: visible;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
     }
 
     header nav ul {
         gap: 12px;
         overflow: visible;
+        flex-wrap: nowrap;
     }
     
     header nav a {
